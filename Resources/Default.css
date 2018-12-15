@@ -1,0 +1,27 @@
+#base,#app .token.selected{
+	background-color:#666666;
+}
+#app .token{
+	border-color:#666666;
+}
+#header{
+	background-color:#999999;
+}
+#box{
+	color:#000000;
+}
+#app{
+	color:#333333;
+}
+.cell#focus,.cell-header#focus{
+	background-color:rgba(204,204,204,0.5);
+}
+.letter.icon{
+	color:#cccccc;
+}
+.text,.left,#app .token.selected{
+	color:#ffffff;
+}
+.right{
+	color:#cccccc;
+}
