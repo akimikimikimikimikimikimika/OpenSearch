@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+<ShortName>Yahoo! JAPAN</ShortName>
+<Description>Yahoo! JAPAN で検索</Description>
+<InputEncoding>UTF-8</InputEncoding>
+<OutputEncoding>UTF-8</OutputEncoding>
+<LongName>Yahoo! JAPAN 検索</LongName>
+<Image height="64" width="64" type="image/png">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAEuQAABLkBEeHNJwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPbSURBVHic7ZldiFdFGMZ/4/qBiiarZigpocKKq5Y3VgoidRdEBX5emAqKCEkIhiFId1JCQuWFkIokRWAXkZSJSKBCIbFqF6Xi56KCabpqfqX7dHHOwnr2nDNz5sz2p5oHBv4757zP88x7Zt4zZxYiIiIiIiIiIiIiIiIiIv53MIKPgZZe1Nhh4PNe5K8HQbtAvdjmNnqMZegL7CaZAROBcWlfVVwDLgC/p7+vpr+vAAeCOP0nIOgnaBG8IXhXcNThCV8UNDfaexaC0YINgmfL7jMWkiHA18Aci95u4zHVBd8CT1aNK0GbgeUp9ypgS9p/AdgL7AG+N/CgislBgoMOM2FpVbeCfQFrzV+C6d249xbcd1vwjWCx4AlXo82CXywGbgkmVEzAPMFXgmOpMZ+BXxfs7/4ABEME9xxi91cxO1Zw2UJ4RDCgShIyGk8JZgneK9E4KtgkmC+YoJxlLJjrOGOmVTU4Q3DHQvyJbwJSjT7pFM3y3hC8mTfgHI7PHBKw0dfgAkGnhXy+J7cRbMnhO6zkFe3C0SS4avHXLhjs47FLpGyKdtWDSRU5+wt25XBtFfSvwDPH4ekvqD7qx0WM4AuLyHHBIEe+oUoKWTaJlY0KNlt8HXRZRi5CA5UUvTKx7Q48Y9Rzw/WbYLKnr1Mlfh6qauGziI1zWG/LSuKfF1zK3L9HMNTTT6vFS60CXST6UprZItG7gudy4haq5xvlU/l9i3Rxri/xcU0wot5o/YQlOKFkW91VPz7IXO8UvBPAx08lHlbWH2mxsFGyoytLwpeCvoJtmf57gkUBPIwSPCrQbhM0hRhrmYFhgtOWJPya+btDMCuQ/ooCzU7B7BAaLiZmWupB9/ZnSGNp8czT2RVKw9XIh44JeDWg5uC02OYleWwoHVczA9OpXTb4oKdEgtcLdNbZYvuENAJg4C5JK8MfgWXzZtNpYLMtMHgCHPEoFFFa3V/JufS2gfu2+EYl4GFArheBkZm+fSY5/rLiv5CADmAnyUk0JOd9b7kGe287a6IzFJGB48CSdCm8AIwycNI1vlEJCL4rM0ldOVQ1rlFLoF9dAsEzIYwET4BgGPavrloJUFL4zgh+FKwWjK/DFwyCyYIDDrvAHwQTBSN8PlLSD6ss5znB1Kpc3kdDgrXAcJKn2QK04r/tvAlcT9spA/NKdMcAZ+k5i84D403APUYhlBxdu/zjwacdsWi/XxC3xmcsvm+BZuBn4E6mv4PHX3H3M/c0YT/uarNc/47E98vAFJJZfBuH88c81D8dbSAETwOvAcbAR432ExERERERERERERERERHxL8HfH0Qc80AIGrgAAAAASUVORK5CYII=</Image>
+<Url type="text/html" method="get" template="https://search.yahoo.co.jp/search?p={searchTerms}&amp;ei=UTF-8"/>
+<moz:SearchForm>https://search.yahoo.co.jp/search?p={searchTerms}&amp;ei=UTF-8</moz:SearchForm>
+</OpenSearchDescription>
