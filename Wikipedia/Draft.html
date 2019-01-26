@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="referrer" content="never" />
+		<meta name="referrer" content="no-referrer" />
+		<title>Wikipedia</title>
+		<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+		<link rel="stylesheet" href="../Resources/main.css" />
+		<link rel="stylesheet" href="../Resources/Default.css" />
+		<style type="text/css">
+			.wikipedia{background-image:url(Wikipedia.svg);}
+			.wikibooks{background-image:url(Wikibooks.svg);}
+			.wiktionary{background-image:url(Wiktionary.svg);}
+			.wikiquote{background-image:url(Wikiquote.svg);}
+			.wikinews{background-image:url(Wikinews.svg);}
+			.wikiversity{background-image:url(Wikiversity.svg);}
+			.wikisource{background-image:url(Wikisource.svg);}
+		</style>
+		<script type="text/javascript">
+			onload=()=>{
+				let list=[
+					["Wikipedia",["ja","random","en","fr","de","es","zh","la","eo","simple"]],
+					["Wikibooks",["ja","random","en","fr","de","es","zh","la","eo","simple"]],
+					["Wiktionary",["ja","random","en","fr","de","es","zh","la","eo","simple"]],
+					["Wikiquote",["ja","random","en","fr","de","es","zh","la","eo","simple"]],
+					["Wikinews",["ja","random","en","fr","de","es","zh","eo"]],
+					["Wikiversity",["ja","random","en","fr","de","es","zh"]],
+					["Wikisource",["ja","random","en","fr","de","es","zh","la","eo"]]
+				];
+				let langList={ja:"日本語",random:"おまかせ表示",en:"English",fr:"Français",de:"Deutsch",es:"Español",zh:"中文",la:"Latina",eo:"Esperanto",simple:"Simple English"};
+				let ge=i=>document.getElementById(i),ce=(i,c,t)=>{
+					let e=document.createElement("div");
+					if (i) e.id=i;
+					if (c) e.className=c;
+					if (t) e.textContent=t;
+					return e;
+				},ap=(p,c)=>p.appendChild(c),ape=(p,i,c,t)=>ap(p,ce(i,c,t));
+				let f=ge("box-frame"),fm=ge("form"),b=ge("box"),q=ge("q");
+				q.removeAttribute("id");
+				let i=ape(f,0,"icon image wikipedia"),app=ape(ape(ape(f,"app")));
+				var domain="ja.wikipedia.org",target=null,lang="ja",project="Wikipedia";
+				i.onclick=()=>{fm.action=`https://${domain}/wiki/Main_Page`;fm.submit();return false;};
+				f.onsubmit=()=>{
+					if (lang=="random") {
+						fm.action=`https://${domain}/wiki/Special:Random`;
+						q.name="";
+						q.value="";
+					}
+					else if (b.value) {
+						fm.action=`https://${domain}/wiki/Special:Search`;
+						q.name="search";
+						q.value=b.value;
+					}
+					else {
+						fm.action=`https://${domain}/wiki/Main_Page`;
+						q.name="";
+						q.value="";
+					}
+					fm.submit();
+					return false;
+				};
+				let cc=(p)=>{
+					let c=ape(lv,0,"cell");
+					let ch=ape(c,0,"cell-header");
+					ape(ch,0,"icon image "+p[0].toLowerCase(),"");
+					ape(ape(ch,0,"group"),0,"left",p[0]);
+					c.onclick=()=>{
+						b.placeholder=p[0];
+						selected.id="";
+						selected=c;
+						project=p;
+						c.id="focus";
+						i.className="icon image "+p[0].toLowerCase();
+						with (app) while (firstChild) removeChild(firstChild);
+						p[1].forEach(e=>{
+							let c=ape(app,0,"token",langList[e]);
+							c.onclick=()=>{
+								lang=e;
+								if (target) target.className="token";
+								c.className="token selected";
+								target=c;
+								if (e=="random") {
+									domain=`ja.${project[0]}.org`;
+									b.readonly=true;
+								}
+								else {
+									domain=`${e}.${project[0]}.org`;
+									b.readonly=false;
+								}
+								return false;
+							};
+							if (e==lang) c.onclick();
+						});
+						if (!target.parentNode) app.firstChild.onclick();
+						return false;
+					};
+					return c;
+				};
+				let sv=ce("scroll-view");
+				let lv=ape(ape(ape(sv)),"list-view");
+				var selected=null;
+				list.forEach(e=>{
+					let c=cc(e);
+					if (e[0]==project) {
+						selected=c;
+						c.onclick();
+					}
+				});
+				ap(ge("base"),sv);
+				ge("base").className="visible-app";
+				onload=null;
+			};
+		</script>
+	</head>
+	<body>
+		<div id="base"><div id="header"><form action="https://ja.wikipedia.org/wiki/Special:Search" id="box-frame" method="post">
+			<noscript><div class="icon image wikipedia"></div></noscript>
+			<input type="search" id="box" name="search" placeholder="Wikipedia" role="searchbox" spellcheck="false" autocomplete="off" autofocus="autofocus" />
+		</form></div></div>
+		<form action="https://ja.wikipedia.org/wiki/Special:Search" id="form" method="post">
+			<input type="hidden" name="search" id="q" />
+		</form>
+	</body>
+</html>
