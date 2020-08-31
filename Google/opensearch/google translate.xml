@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>Google Translate</ShortName>
+	<LongName>Google Translate</LongName>
+	<Description>Google Translate で翻訳</Description>
+	<Image height="64" width="64" type="image/png">../images/googletranslate.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://translate.google.com/?hl=ja#view=home&amp;op=translate&amp;text={searchTerms}&amp;sl=auto&amp;tl=ja" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Google/opensearch/google%20translate.xml" />
+	<moz:SearchForm>https://translate.google.com/?hl=ja#view=home&amp;op=translate&amp;sl=auto&amp;tl=ja</moz:SearchForm>
+</OpenSearchDescription>

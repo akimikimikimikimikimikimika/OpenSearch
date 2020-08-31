@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>Bing Maps</ShortName>
+	<LongName>Bing Maps</LongName>
+	<Description>Bing Maps を検索</Description>
+	<Image height="16" width="16" type="image/x-icon">../images/favicon.ico</Image>
+	<Image height="64" width="64" type="image/png">../images/icon.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://bing.com/maps">
+		<Param name="q" value="{searchTerms}" />
+		<Param name="cc" value="jp" />
+		<Param name="setLang" value="ja-jp" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Bing/opensearch/bing%20maps.xml" />
+	<moz:SearchForm>https://bing.com/maps?cc=jp&amp;setLang=ja-jp</moz:SearchForm>
+</OpenSearchDescription>

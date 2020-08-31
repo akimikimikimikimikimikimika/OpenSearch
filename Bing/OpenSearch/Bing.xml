@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
-<ShortName>Bing</ShortName>
-<Description>Search on Bing</Description>
-<InputEncoding>UTF-8</InputEncoding>
-<OutputEncoding>UTF-8</OutputEncoding>
-<LongName>Bing Search</LongName>
-<Image height="64" width="64" type="image/png">data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAJ2AAACdgBx6C5rQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAS7SURBVHic7ZtvaFVlHMc/v3O3rm4RlihkL4qtIkoqfCUqvYkK0vSFZBC4MKRFzPUH3Tm7G3IK3XOuS8P+GAMhmgYR0R83YuAbLQ3JIiEUG66/UIo6rbHanfeeXy82Ddc275/zZ9D5vLvnPM/z+z7f58dzfue590JCQkLC/xgpuqUxTyC6EJV9OM7XiGiIuiKjFANsBG/801mUPqAHy+rDtodCURcBVWX2m4ewFliL+iN45hBIL/n8R7S3/xqkwLApNwOmQkG+Bb8XrA9xnO8qkxc+5WbAVAjoIpBFoEuAhwIeP3CsuAXETWJA3ALiJjEgbgFxkxgQt4C4SQyIW0DcBF0JTk1Hx52k5EVUPqGm5gDNzbnIYk9DdBmQyfSjLATt46/hQYzpwZhn6OycH5mGSYguAwCQbaDLgBqEFcAKCvldZM0RfHpQ/ZhMpj9KRdHuAbbdCxyfcDWFshTBw5Lv8cxxssbD85ahWvzbaplEa4CIIrr9Gq3uRrFBvyDrncaYbjzvMVz3ujAkRf8UmDN3L/BLka3njx286D5mpcf2Dc9r4DV3TlByojegsfES6Btl9Kwd2zf0XXLpc2TNIYyx2bbtjkrkRLwJjiOpLlTbQMtdycv7xlL8godnTiD0oNKLbR8u5cA2nkLItodQfTvAEf/dNzzvR7JbHyy2Y3yVoO/vBP4OfFzhVnyrvtjm8RnQ1nYGYU9s8ceJ912goNuB4TglxGtAJtPPSG4ByAvAb3FIiP9t0HX/xHF2UlNbB/IUcDLK8PEbcJnm5hyO081I7h6QlcCXUYSNpw6YDtf1gR6gB2PWI3QR4kLNPAMAtmy5hVSqBeFZQs7SmWXAjh03cSnXgtIMzI4i5MwwoLOzlny+idFRBwjsRacY4jWgq6uawcF1FPIuws0Q/W8uwjKggOj7U951XYt0ejUXzhtEii5bwyAMA3IgDditH0x61/NWIbpl7HwwlAOfYeBUsY0DNkAuAqtwnM//c8vzloAa0AdCy3Sll+pCExvbfy62S5AG/I5VeJSWtmNXXd26dSFV1mZUHw8w1kT6UZ6ntbWv1I4BGaADWFWP0NI6cOWSMbdh0YqyHg3tWT6M8iq1tabc7xmCMOAoPstxWs4CY0VMdWozytNoiE8ZpZdC4blKf5RVoUDdj6RWk7GHripiNNQi5iRiNePY+4MYrJLU7ObGucuxLB9jbEZHB8aOpcKavFxEcRjJ3YcdzOSh3AxQXqe+fhMDA+sQwi5iFGUvfmETbW1ngh68VAMUwUb5iR9OnQi/iJFj+H4TmczhsCIUb4ClOdQyKE8ien9IRcxlLoC8TF3dm6xZUwgzUPEGVPEZl/RT4K7w5OAj7KagGTKt50OMc4XSltF1Z5FOZxE2lNz32nyDWE3Y9pGAx52W8iZhzMMI7wALKpegg2C9EkW6T0b5q9jRMQ+R3QgryxzBR3mP6uqX2LjxXNk6KqTyNPa8BtC3gOtL6HV0PN2/qjh+hVReoztON6n8vRR3insapZGR3OKZMHkIciNz3SrS6XaEdiA14W4eZRcim3GcPwKLGQDBP8yz2cWovwe4HQDlICIbZuqfJ8KpZlz3Bmans6gcxHGmPhpLSEhISIiXfwCe7YCFe3mn3wAAAABJRU5ErkJggg==</Image>
-<Url type="text/html" method="get" template="https://bing.com/search?q={searchTerms}&amp;scope=web&amp;mkt=ja-jp&amp;cc=jp&amp;setLang=ja-jp&amp;count=100&amp;textDecoration=false"/>
-<Url type="application/x-suggestions+json" template="https://www.bing.com/osjson.aspx?query={searchTerms}&amp;mkt=ja-jp&amp;cc=jp"/>
-<moz:SearchForm>https://bing.com/search?q={searchTerms}&amp;scope=web&amp;mkt=ja-jp&amp;cc=jp&amp;setLang=ja-jp&amp;count=100&amp;textDecoration=false</moz:SearchForm>
+	<ShortName>Bing</ShortName>
+	<LongName>Bing Search</LongName>
+	<Description>Bing で検索</Description>
+	<Image height="16" width="16" type="image/x-icon">../images/favicon.ico</Image>
+	<Image height="64" width="64" type="image/png">../images/icon.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://bing.com/search">
+		<Param name="q" value="{searchTerms}" />
+		<Param name="scope" value="web" />
+		<Param name="mkt" value="ja-jp" />
+		<Param name="cc" value="jp" />
+		<Param name="setLang" value="ja-jp" />
+		<Param name="textDecoration" value="false" />
+	</Url>
+	<Url type="application/x-suggestions+json" method="get" template="https://www.bing.com/osjson.aspx">
+		<Param name="query" value="{searchTerms}" />
+		<Param name="mkt" value="ja-jp" />
+		<Param name="cc" value="jp" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Bing/opensearch/bing.xml" />
+	<moz:SearchForm>https://bing.com/?scope=web&amp;mkt=ja-jp&amp;cc=jp&amp;setLang=ja-jp</moz:SearchForm>
 </OpenSearchDescription>
