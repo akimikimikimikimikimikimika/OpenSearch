@@ -14,4 +14,6 @@
  - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/search/DuckDuckGo/ "DuckDuckGo")
 
 ## 画像の使用
+
 ここで使用されている画像は全てWikipediaから取得したものであり、画像の使用目的に合わせて最適化している。
+著作権表示は [Image License.md](Image%20License.md) に記載。

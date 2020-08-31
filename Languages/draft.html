@@ -191,7 +191,7 @@
 					},
 					{
 						name:"Java docs",
-						image:"Java",
+						char:"J",
 						link:"https://docs.oracle.com/javase/jp/14/docs/api/index.html",
 						action:"https://docs.oracle.com/apps/search/search.jsp",
 						category:true
@@ -199,7 +199,7 @@
 					{
 						name:"Maven",
 						fullName:"maven package",
-						image:"Java",
+						char:"J",
 						link:"https://search.maven.org/",
 						action:"https://search.maven.org/search"
 					},
@@ -260,8 +260,8 @@
 						action:"https://www.nuget.org/packages"
 					}
 				].map(d=>{
-					d.image=`images/${d.image}.svg`;
-					d.char="";
+					d.image=d.image?`images/${d.image}.svg`:undefined;
+					d.char=d.char?d.char:"";
 					return d;
 				}));
 				document.body.append(search.node);

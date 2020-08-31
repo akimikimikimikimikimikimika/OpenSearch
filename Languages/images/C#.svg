@@ -1,34 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" width="1024" height="1024" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-	<g transform="translate(22.5,0)">
-		<defs>
-			<clipPath id="hexagon">
-				<path d="M435.279,113.284L247.191,4.692c-10.835-6.257-28.567-6.257-39.402,0L19.701,113.284 C8.865,119.539,0,134.896,0,147.408v217.185c0.843,14.571,8.286,26.639,19.701,34.123l188.088,108.592 c10.835,6.257,28.567,6.257,39.402,0l188.088-108.592c12.248-8.146,19.219-20.408,19.701-34.123V147.408 C454.54,134.243,446.657,120.965,435.279,113.284z"/>
-			</clipPath>
-			<linearGradient id="top" gradientUnits="userSpaceOnUse" x1="121.0946" y1="55.8074" x2="261.7725" y2="235.867">
-				<stop offset="0" style="stop-color: #A47EDE"/>
-				<stop offset="1" style="stop-color: #9866D3"/>
-			</linearGradient>
-			<linearGradient id="centre" gradientUnits="userSpaceOnUse" x1="314.1754" y1="207.291" x2="443.4638" y2="372.7726">
-				<stop offset="0" style="stop-color: #3B009B"/>
-				<stop offset="1" style="stop-color: #390086"/>
-			</linearGradient>
-			<linearGradient id="bottom" gradientUnits="userSpaceOnUse" x1="115.2882" y1="326.1631" x2="252.7405" y2="502.094">
-				<stop offset="0" style="stop-color: #340084"/>
-				<stop offset="1" style="stop-color: #290064"/>
-			</linearGradient>
-		</defs>
-		<g clip-path="url(#hexagon)" transform="matrix(0.8974358974,0,0,0.9057971014,26,20)">
-			<rect fill="url(#centre)" x="222.588" y="124.487" width="267.464" height="273.493"/>
-			<polygon fill="url(#bottom)" points="490.052,407.802 145.845,208.63 -29.911,208.63 -29.911,538.353 490.052,538.353"/>
-			<polygon fill="url(#top)" points="-29.911,405.093 490.052,104.208 490.052,-14.513 -29.911,-14.513"/>
-		</g>
-		<path id="c" fill="#fff" d="M75.83,256.001c-0.891-148.089,197.459-213.479,282.996-75.878l-65.635,37.98 c-39.622-65.534-138.001-42.101-141.532,37.897c1.06,73.729,97.754,107.978,141.536,37.893l65.635,37.979 C283.448,462.735,79.632,415.653,75.83,256.001z" transform="matrix(0.8974358974,0,0,0.9057971014,26,20)" />
-		<g id="sharp" aria-label="&#x266F;" data-name="&#x266F;" transform="matrix(0.8974358974,0,0,0.9057971014,26,20)">
-			<polygon fill="#fff" points="326,213 338.5,213 329.959,295.5 317.224,295.5"/>
-			<polygon fill="#fff" points="352.776,213 365.276,213 356.735,295.5 344,295.5"/>
-			<rect fill="#fff" x="312" y="232.592" width="62.5" height="12.072"/>
-			<rect fill="#fff" x="308.5" y="262" width="62.5" height="12.072"/>
-		</g>
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 72 72">
+	<g transform="translate(4,4)">
+		<circle fill="#05930c" cx="32" cy="32" r="32"/>
+		<path fill="#fff" opacity="0.1" d="M9.82,9A32,32,0,1,0,55,54.18Z"/>
+		<path fill="#fff" d="M30.43,43.55a14.78,14.78,0,0,1-7,1.48,11.23,11.23,0,0,1-8.61-3.46,12.78,12.78,0,0,1-3.23-9.09,13.39,13.39,0,0,1,3.64-9.77A12.35,12.35,0,0,1,24.49,19a14.8,14.8,0,0,1,5.94,1v3.15a12,12,0,0,0-6-1.51,9.17,9.17,0,0,0-7,2.9,10.93,10.93,0,0,0-2.7,7.75,10.4,10.4,0,0,0,2.52,7.34,8.58,8.58,0,0,0,6.62,2.73,12.42,12.42,0,0,0,6.57-1.69Z"/>
+		<path fill="#fff" d="M52.76,26.46l-.4,1.86H47.76L46.66,33.6H51.6l-.47,1.86H46.29l-1.55,7H42.53l1.51-7H39.64l-1.48,7H36l1.48-7H32.84l.35-1.86h4.66l1.07-5.27H34.05l.37-1.86h4.87l1.48-7.07H43l-1.48,7.07h4.43l1.51-7.07h2.16l-1.48,7.07Zm-7.17,1.86H41.15L40,33.6h4.46Z"/>
 	</g>
 </svg>
