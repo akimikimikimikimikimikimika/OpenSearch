@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>Google</ShortName>
+	<LongName>Google Search</LongName>
+	<Description>Google で検索</Description>
+	<Image height="64" width="64" type="image/png">../images/google.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://encrypted.google.com/search">
+		<Param name="q" value="{searchTerms}" />
+		<Param name="ie" value="utf-8" />
+		<Param name="oe" value="utf-8" />
+		<Param name="hl" value="ja" />
+		<Param name="gl" value="ja" />
+	</Url>
+	<Url type="application/x-suggestion+json" method="get" template="https://suggestqueries.google.com/complete/search">
+		<Param name="q" value="{searchTerms}" />
+		<Param name="ie" value="utf-8" />
+		<Param name="oe" value="utf-8" />
+		<Param name="hl" value="ja" />
+		<Param name="output" value="firefox" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Google/opensearch/google.xml" />
+	<moz:SearchForm>https://www.google.com/webhp?ie=utf-8&amp;oe=utf-8&amp;hl=ja&amp;gl=ja</moz:SearchForm>
+</OpenSearchDescription>
