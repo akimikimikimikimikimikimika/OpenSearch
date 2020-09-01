@@ -6,11 +6,10 @@
 
  - [Google](https://akimikimikimikimikimikimika.github.io/Search/Google/ "Google")
  - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")
+ - [Wikipedia](https://akimikimikimikimikimikimika.github.io/search/Wikipedia/ "Wikipedia")
 
 ### 準備中
 
- - [Yahoo!](https://akimikimikimikimikimikimika.github.io/search/Yahoo/ "Yahoo!")
- - [Wikipedia](https://akimikimikimikimikimikimika.github.io/search/Wikipedia/ "Wikipedia")
  - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/search/DuckDuckGo/ "DuckDuckGo")
 
 ## 画像の使用

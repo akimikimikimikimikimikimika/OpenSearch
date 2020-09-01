@@ -5,12 +5,11 @@
 		<meta charset="UTF-8" />
 		<title>Google</title>
 
-		<meta name="referrer" content="never" />
+		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
 		<meta name="apple-mobile-web-app-title" content="Google" />
-		<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
 		<link rel="shortcut icon" href="images/google.png" />
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Google" href="OpenSearch/google.xml" />
@@ -418,7 +417,7 @@
 					}
 				].map(d=>{
 					d.char="";
-					d.image=`../Google/images/${d.image}.svg`;
+					d.image=`images/${d.image}.svg`;
 					return d;
 				}));
 				document.body.append(search.node);

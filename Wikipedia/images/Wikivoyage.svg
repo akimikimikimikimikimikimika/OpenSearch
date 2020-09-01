@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   id="svg10464"
+   height="192.5"
+   width="192.5">
+  <defs
+     id="defs10466" />
+  <metadata
+     id="metadata10469">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     transform="translate(-253.75,-436.11218)"
+     id="layer1">
+    <g
+       transform="translate(722.97145,-2916.4008)"
+       id="g10459">
+      <path
+         id="path10362"
+         d="m -377.73926,3469.1621 47.91553,72.5713 5.21035,-86.8064 c -13.89437,13.8944 -34.14588,19.3208 -53.12588,14.2351 z"
+         style="fill:#339966;fill-opacity:1;stroke:none" />
+      <path
+         style="fill:#990000;fill-opacity:1;stroke:none"
+         d="m -318.89196,3433.5745 38.89087,-77.7818 -77.78173,38.8909 c 18.98006,5.0857 33.80519,19.9108 38.89086,38.8909 z"
+         id="path10364" />
+      <path
+         id="path10366"
+         d="m -379.1354,3400.405 -86.80641,5.2104 72.57138,47.9155 c -5.08569,-18.98 0.34069,-39.2315 14.23503,-53.1259 z"
+         style="fill:#006699;fill-opacity:1;stroke:none" />
+    </g>
+  </g>
+</svg>

@@ -2,7 +2,7 @@
 <html class="hide-bar" xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="referrer" content="never" />
+		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no,email=no,address=no" />
 		<meta name="application-name" content="Search" />
@@ -17,10 +17,11 @@
 	<body>
 		<div id="header">
 			<div>
-				<form action="https://encrypted.google.com/search" method="GET">
-					<input type="text" role="searchbox" placeholder="Package index" name="q" autofocus="autofocus" />
+				<form action="https://ja.wikipedia.org/wiki/Special:Search" method="GET">
+					<input type="text" role="searchbox" placeholder="Wikipedia" name="search" autofocus="autofocus" />
+					<span id="params"><input type="hidden" name="title" value="Special:Search" /><input type="hidden" name="uselang" value="ja" /></span>
 				</form>
-				<a style="--image:url(../Google/images/google.svg);" id="icon" href="https://encrypted.google.com/webhp"></a>
+				<a style="--image:url(../Wikipedia/images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
 				<!--
 					<div id="bottomBar">
 						<div class="selected">Item 1</div>
@@ -66,11 +67,11 @@
 				};
 
 				/* element */
-				let q=qs('[name="q"]'),
+				let q=qs('[name="search"]'),
 				f=qs("form"), /* form */
 				a=qs("a"), /* icon */
-				tbm=qs('input[name="tbm"]'),
-				btnI=ce(`<input type="hidden" name="btnI" value="" />`);
+				pl=qs("#params"),
+				useLang=qs("[name=\"uselang\"]");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -98,6 +99,7 @@
 						if (n==0) cell.classList.toggle("selected");
 						cell.style.setProperty("--char",d.char?`"${d.char}"`:'" "');
 						cell.style.setProperty("--image",d.image?`url(${d.image})`:"");
+						if (d.small) cell.classList.toggle("small",true);
 						cell.addEventListener("click",()=>{p.current=n;q.focus();});
 						d.node=cell;
 						o.node.append(cell);
@@ -105,175 +107,261 @@
 					return p;
 				};
 
-				/* toggle a certain parameter */
-				let tp=(p,b)=>{
-					if (p.parentNode&&(!b)) params.search.removeChild(p);
-					if ((!p.parentNode)&&b) params.search.appendChild(p);
-					return p;
-				};
-
 				/* called when the state changed */
 				let didStateChange=()=>{
 					let sd=search.data[search.current];
-					let dd=domains.data[domains.current];
-					if ((sd.param===params.search)&&(dd.tld=="cn")) {domains.current=0;return;}
-					if ((sd.param===params.search)&&domains.data[cn].node.parentNode) domains.node.removeChild(domains.data[cn].node);
-					if ((sd.param!==params.search)&&(!domains.data[cn].node.parentNode)) domains.node.insertBefore(domains.data[cn].node,domains.node.childNodes[cn]);
-					a.href=sd.link.replace("{com}",dd.tld);
+					let ld=languages.data[languages.current];
+					if (sd.lang.findIndex(t=>t==ld.tag)==-1) {
+						languages.current=1;
+						return;
+					}
+
+					let rl=Array.from(languages.data);
+					let ll=sd.lang.map(t=>{
+						let i=rl.findIndex(d=>d.tag==t);
+						return rl.splice(i,1)[0];
+					});
+					rl.forEach(d=>{
+						if (d.node.parentNode==languages.node) languages.node.removeChild(d.node);
+					});
+					ll.forEach(d=>languages.node.appendChild(d.node));
+
+					let m=ld.tag=="main";
+					if (m) {
+						a.href=sd.main;
+						f.action="";
+					}
+					else {
+						a.href=sd.link.replace("{lang}",ld.tag).replace("{mainPage}",ld.mainPage);
+						f.action=sd.action.replace("{lang}",ld.tag);
+					}
 					a.style.setProperty("--image",sd.image?`url(${sd.image})`:"");
-					f.action=sd.action.replace("{com}",dd.tld);
-					tp(tbm,sd.tbm!=undefined).value=sd.tbm;
-					tp(btnI,sd.btnI);
-					f.onsubmit=sd.submit??null;
-					f.replaceChild(sd.param,qs("#params"));
-					q.name=sd.query??"q";
-					q.placeholder=sd.fullName??"Google";
+					tp(useLang,sd.useLang);
+					q.placeholder=sd.name;
+					q.disabled=m;
+					if (m) q.value="";
+					if (m) location.href=sd.main;
 				};
 
-				/* parameter lists */
-				let params={
-					search:qs("#params"),
-					maps:ce(`<span id="params"><input type="hidden" name="hl" value="ja" /></span>`),
-					translate:ce(`<span id="params"><input type="hidden" name="hl" value="ja" /><input type="hidden" name="sl" value="auto" /><input type="hidden" name="tl" value="ja" /></span>`)
+				/* toggle a certain parameter */
+				let tp=(p,b)=>{
+					if (p.parentNode&&(!b)) pl.removeChild(p);
+					if ((!p.parentNode)&&b) pl.appendChild(p);
+					return p;
 				};
 
-				/* event handler (submit) for translate */
-				let tr=(()=>{
-					let f=e=>{
-						location.href=url("translate","")+"#view=home&op=translate&hl=ja&sl=auto&tl=ja&text="+encodeURIComponent(q.value);
-						e.preventDefault();
-					};
-					return e=>f(e);
-				})();
+				let langs="ja,en,de,fr,es,pt,it,nl,ru,zh";
 
 				/* search data */
-				let url=(sd,pt,keep)=>`https://${sd}.google.${keep?"com":"{com}"}/${pt}`,param="?ie=utf-8&oe=utf-8&hl=ja&gl=ja";
 				let search=construct([
 					{
-						name:"Web",
-						image:"google",
-						link:url("www","webhp")+param,
-						action:url("www","search"),
-						tbm:"",
-						param:params.search
+						name:"Wikipedia",
+						link:"https://{lang}.wikipedia.org/wiki/Main_Page",
+						action:"https://{lang}.wikipedia.org/w/index.php",
+						main:"https://www.wikipedia.org/",
+						lang:langs+",simple,la,eo,multi"
 					},
 					{
-						name:"I'm feeling lucky",
-						image:"google",
-						fullName:"I'm feeling lucky",
-						link:url("www","webhp")+param,
-						action:url("www","search"),
-						tbm:"",
-						btnI:true,
-						param:params.search
+						name:"Wiktionary",
+						link:"https://{lang}.wiktionary.org/wiki/Wiktionary:Main_Page",
+						action:"https://{lang}.wiktionary.org/w/index.php",
+						main:"https://www.wiktionary.org/",
+						lang:langs+",simple,la,eo,multi"
 					},
 					{
-						name:"Maps",
-						image:"googlemaps",
-						fullName:"Google Maps",
-						link:url("www","maps")+param,
-						action:url("www","maps"),
-						tbm:"",
-						param:params.maps
+						name:"Wikibooks",
+						link:"https://{lang}.wikibooks.org/wiki/Main_Page",
+						action:"https://{lang}.wikibooks.org/w/index.php",
+						main:"https://www.wikibooks.org/",
+						lang:langs+",simple,la,eo,multi"
 					},
 					{
-						name:"Translate",
-						image:"googletranslate",
-						fullName:"translate it into Japanese",
-						link:url("translate","")+"?hl=ja#view=home&op=translate&sl=auto&tl=ja&text=",
-						action:url("translate",""),
-						tbm:"",
-						query:"text",
-						param:params.translate,
-						submit:tr
+						name:"Wikisource",
+						link:"https://{lang}.wikisource.org/wiki/Main_Page",
+						action:"https://{lang}.wikisource.org/w/index.php",
+						main:"https://wikisource.org/",
+						lang:langs+",la,eo,multi"
 					},
 					{
-						name:"Images",
-						image:"google",
-						fullName:"Google Images",
-						link:url("images","")+param,
-						action:url("www","search"),
-						tbm:"isch",
-						param:params.search
+						name:"Wikiversity",
+						link:"https://{lang}.wikiversity.org/wiki/Main_Page",
+						action:"https://{lang}.wikiversity.org/w/index.php",
+						main:"https://www.wikiversity.org/",
+						lang:langs+",multi"
 					},
 					{
-						name:"Videos",
-						image:"google",
-						fullName:"Google Videos",
-						link:url("www","videohp")+param,
-						action:url("www","search"),
-						tbm:"vid",
-						param:params.search
+						name:"Wikinews",
+						link:"https://{lang}.wikinews.org/wiki/Main_Page",
+						action:"https://{lang}.wikinews.org/w/index.php",
+						main:"https://www.wikinews.org/",
+						lang:langs+",eo,multi"
 					},
 					{
-						name:"News",
-						image:"googlenews",
-						fullName:"Google News",
-						link:url("news","topstories",true)+"?hl=ja&gl=JP&ceid=JP:ja",
-						action:url("www","search"),
-						tbm:"nws",
-						param:params.search
+						name:"Wikiquote",
+						link:"https://{lang}.wikiquote.org/wiki/Main_Page",
+						action:"https://{lang}.wikiquote.org/w/index.php",
+						main:"https://www.wikiquote.org/",
+						lang:langs+",multi"
 					},
 					{
-						name:"Books",
-						image:"google",
-						fullName:"Google Books",
-						link:url("books","")+param,
-						action:url("www","search"),
-						tbm:"bks",
-						param:params.search
+						name:"Wikivoyage",
+						link:"https://{lang}.wikivoyage.org/wiki/Main_Page",
+						action:"https://{lang}.wikivoyage.org/w/index.php",
+						main:"https://www.wikivoyage.org/",
+						lang:langs+",multi"
 					},
 					{
-						name:"Shopping",
-						image:"google",
-						fullName:"Google Shopping",
-						link:url("www","shopping")+param,
-						action:url("www","search"),
-						tbm:"shop",
-						param:params.search
+						name:"Wikispecies",
+						link:"https://species.wikimedia.org/wiki/{mainPage}",
+						action:"https://species.wikimedia.org/w/index.php",
+						lang:langs+",simple,eo",
+						useLang:true
 					},
 					{
-						name:"Finance",
-						image:"google",
-						fullName:"Google Finance",
-						link:url("www","finance")+param,
-						action:url("www","search"),
-						tbm:"fin",
-						param:params.search
+						name:"Wikidata",
+						link:"https://www.wikidata.org/wiki/Wikidata:Main_Page?uselang={lang}",
+						action:"https://www.wikidata.org/w/index.php",
+						lang:langs+",eo",
+						useLang:true
+					},
+					{
+						name:"Meta-Wiki",
+						link:"https://meta.wikimedia.org/wiki/Main_Page",
+						action:"https://meta.wikimedia.org/w/index.php",
+						lang:"en"
+					},
+					{
+						name:"Commons",
+						link:"https://commons.wikimedia.org/wiki/Main_Page?uselang={lang}",
+						action:"https://commons.wikimedia.org/w/index.php",
+						lang:langs+",eo",
+						useLang:true
 					}
 				].map(d=>{
 					d.char="";
-					d.image=`../Google/images/${d.image}.svg`;
+					d.image=`../Wikipedia/images/${d.name}.svg`;
+					d.lang=d.lang.split(",");
 					return d;
 				}));
+				search.node.classList.toggle("hidden",true);
 				document.body.append(search.node);
 
-				/* domain data */
-				let domains=construct("com,cat,ad,ae,com.af,com.ag,com.ai,al,am,co.ao,com.ar,as,at,com.au,az,ba,com.bd,be,bf,bg,com.bh,bi,bj,com.bn,com.bo,com.br,bs,bt,co.bw,by,com.bz,ca,cd,cf,cg,ch,ci,co.ck,cl,cm,cn,com.co,co.cr,com.cu,cv,com.cy,cz,de,dj,dk,dm,com.do,dz,com.ec,ee,com.eg,es,com.et,fi,com.fj,fm,fr,ga,ge,gg,com.gh,com.gi,gl,gm,gr,com.gt,gy,com.hk,hn,hr,ht,hu,co.id,ie,co.il,im,co.in,iq,is,it,je,com.jm,jo,co.jp,co.ke,kg,com.kh,ki,co.kr,com.kw,kz,la,com.lb,li,lk,co.ls,lt,lu,lv,com.ly,co.ma,md,me,mg,mk,ml,com.mm,mn,ms,com.mt,mu,mv,mw,com.mx,com.my,co.mz,com.na,ne,com.ng,com.ni,nl,no,com.np,nr,nu,co.nz,com.om,com.pa,com.pe,com.pg,com.ph,com.pk,pl,pn,com.pr,ps,pt,com.py,com.qa,ro,ru,rw,com.sa,com.sb,sc,se,com.sg,sh,si,sk,com.sl,sm,sn,so,sr,st,com.sv,td,tg,co.th,com.tj,tl,tm,tn,to,com.tr,tt,com.tw,co.tz,com.ua,co.ug,co.uk,com.uy,co.uz,com.vc,co.ve,vg,co.vi,com.vn,vu,ws,co.za,co.zm,co.zw".split(",").map(tld=>{
-					var c="";
-					switch (tld) {
-						case "com": c="🌎"; break;
-						case "cat": c="🐈"; break;
-						case "co.uk": c="";
-						default:
-							let cc=tld.match(/[a-z]{2}$/)[0];
-							c=String.fromCodePoint(...Array.from(cc=="uk"?"gb":cc).map(v=>parseInt(v,36)-10+0x1F1E6));
+				/* language data */
+				let languages=construct([
+					{
+						name:"日本語",
+						tag:"ja",
+						char:"🇯🇵",
+						mainPage:"メインページ"
+					},
+					{
+						name:"English",
+						tag:"en",
+						char:"🇬🇧",
+						mainPage:"Main_Page"
+					},
+					{
+						name:"English",
+						tag:"en",
+						char:"🇬🇧",
+						mainPage:"Main_Page"
+					},
+					{
+						name:"Deutsch",
+						tag:"de",
+						char:"🇩🇪",
+						mainPage:"Hauptseite"
+					},
+					{
+						name:"Français",
+						tag:"fr",
+						char:"🇫🇷",
+						mainPage:"Accueil"
+					},
+					{
+						name:"Español",
+						tag:"es",
+						char:"🇪🇸",
+						mainPage:"Portada"
+					},
+					{
+						name:"Português",
+						tag:"pt",
+						char:"🇵🇹",
+						mainPage:"Página_principal"
+					},
+					{
+						name:"Italiano",
+						tag:"it",
+						char:"🇮🇹",
+						mainPage:"Pagina_principale"
+					},
+					{
+						name:"Nederlands",
+						tag:"nl",
+						char:"🇳🇱",
+						mainPage:"Hoofdpagina"
+					},
+					{
+						name:"Русский",
+						tag:"ru",
+						char:"🇷🇺",
+						mainPage:"Заглавная_страница"
+					},
+					{
+						name:"中文",
+						tag:"zh",
+						char:"🇨🇳",
+						mainPage:"主頁"
+					},
+					{
+						name:"Simple English",
+						tag:"simple",
+						char:"EN",
+						small:true,
+						mainPage:"Main_Page_(Simple_English)"
+					},
+					{
+						name:"Esperanto",
+						tag:"eo",
+						char:"EO",
+						small:true,
+						mainPage:"Ĉefpaĝo"
+					},
+					{
+						name:"Latina",
+						tag:"la",
+						char:"LA",
+						small:true
+					},
+					{
+						name:"Multilingual",
+						tag:"multi",
+						char:""
 					}
-					return {
-						name:"Google."+tld,
-						char:c,
-						tld:tld
-					};
+				].map(d=>{
+					d.image="";
+					return d;
 				}));
-				domains.node.classList.toggle("hidden",true);
-				document.body.append(domains.node);
-				let cn=domains.data.findIndex(d=>d.tld=="cn");
+				document.body.append(languages.node);
 
 				document.documentElement.classList.toggle("hide-bar",false);
-				let bb=qs("#header>div").appendChild(ce(`<div id="bottomBar"><div class="selected">Search for</div><div>Domains</div></div>`));
+				let bb=qs("#header>div").appendChild(ce(`<div id="bottomBar"><div class="selected">Language</div><div>Project</div><div>GET</div></div>`));
 				let setBB=n=>{
-					bb.childNodes.forEach((b,m)=>b.classList.toggle("selected",n==m));
-					[search,domains].forEach((o,m)=>o.node.classList.toggle("hidden",n!=m));
+					if (n==2) {
+						let m=f.method.toLowerCase();
+						switch (m) {
+							case "get": m="POST"; break;
+							case "post": m="GET"; break;
+							default: m="GET";
+						}
+						f.method=m;
+						bb.lastChild.textContent=m;
+					}
+					else {
+						bb.childNodes.forEach((b,m)=>b.classList.toggle("selected",n==m));
+						[languages,search].forEach((o,m)=>o.node.classList.toggle("hidden",n!=m));
+					}
 				};
 				bb.childNodes.forEach((b,n)=>b.addEventListener("click",e=>{setBB(n);e.preventDefault();}));
 
