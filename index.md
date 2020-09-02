@@ -18,7 +18,7 @@
 
  - [YouTube](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "YouTube")
 
- - [Languages](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "Languages")  
+ - [Languages](https://akimikimikimikimikimikimika.github.io/Search/Languages/ "Languages")  
 	MDNと各種主要言語のリファレンスやパッケージ検索
 
 ### 準備中
