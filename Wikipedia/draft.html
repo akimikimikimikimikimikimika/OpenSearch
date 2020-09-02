@@ -17,11 +17,11 @@
 	<body>
 		<div id="header">
 			<div>
-				<form action="https://ja.wikipedia.org/wiki/Special:Search" method="GET">
+				<form action="https://ja.wikipedia.org/w/index.php" method="GET">
 					<input type="text" role="searchbox" placeholder="Wikipedia" name="search" autofocus="autofocus" />
-					<span id="params"><input type="hidden" name="title" value="Special:Search" /><input type="hidden" name="uselang" value="ja" /></span>
+					<span id="params"></span>
 				</form>
-				<a style="--image:url(../Wikipedia/images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
+				<a style="--image:url(images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -43,7 +43,7 @@
 				f=qs("form"), /* form */
 				a=qs("a"), /* icon */
 				pl=qs("#params"),
-				useLang=qs("[name=\"uselang\"]");
+				useLang=ce(`<input type="hidden" name="uselang" value="ja" />`);
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{

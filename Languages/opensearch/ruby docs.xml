@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>るりまサーチ</ShortName>
+	<LongName>るりまサーチ</LongName>
+	<Description>Rubyリファレンスマニュアルの検索</Description>
+	<Image height="64" width="64" type="image/png">../images/Ruby.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://rurema.clear-code.com/">
+		<Param name="query" value="{searchTerms}" />
+		<Param name="scope" value="quickref" />
+		<Param name="locale" value="ja" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/ruby%20docs.xml" />
+	<moz:SearchForm>https://rurema.clear-code.com/</moz:SearchForm>
+</OpenSearchDescription>

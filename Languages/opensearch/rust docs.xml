@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>std crate reference</ShortName>
+	<LongName>Rust std crate reference</LongName>
+	<Description>Rust stdクレートリファレンスマニュアルの検索</Description>
+	<Image height="64" width="64" type="image/png">../images/Rust.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="post" template="https://doc.rust-lang.org/stable/std/">
+		<Param name="search" value="{searchTerms}" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/rust%20docs.xml" />
+	<moz:SearchForm>https://doc.rust-lang.org/stable/std/</moz:SearchForm>
+</OpenSearchDescription>

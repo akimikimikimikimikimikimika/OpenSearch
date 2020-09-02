@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>GoDoc</ShortName>
+	<LongName>GoDoc</LongName>
+	<Description>Goパッケージシステムの検索</Description>
+	<Image height="64" width="64" type="image/png">../images/Go.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="post" template="https://godoc.org/">
+		<Param name="q" value="{searchTerms}" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/goget.xml" />
+	<moz:SearchForm>https://godoc.org/</moz:SearchForm>
+</OpenSearchDescription>

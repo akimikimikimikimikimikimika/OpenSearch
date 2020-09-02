@@ -13,6 +13,22 @@
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
+
+		<editing-folder>
+			<link rel="search" type="application/opensearchdescription+xml" title="npm" href="opensearch/npm.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="Pythonドキュメント" href="opensearch/python%20docs.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="PyPI" href="opensearch/pypi.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="るりまサーチ" href="opensearch/ruby%20docs.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="RubyGems" href="opensearch/rubygems.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="PHP.net" href="opensearch/php%20docs.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="Composer" href="opensearch/composer.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="Go documentation" href="opensearch/go%20docs.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="GoDoc" href="opensearch/godoc.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="std crate reference" href="opensearch/rust%20docs.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="crates.io" href="opensearch/crates.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title=".NET API リファレンス" href="opensearch/dotnetapi.xml" />
+			<link rel="search" type="application/opensearchdescription+xml" title="NuGet" href="opensearch/nuget.xml" />
+		</editing-folder>
 	</head>
 	<body>
 		<div id="header">
@@ -46,6 +62,8 @@
 				checkKeywords=ce(`<input type="hidden" name="check_keywords" value="yes" />`),
 				utf8=ce(`<input type="hidden" name="utf8" value="✓" />`),
 				scope=ce(`<input type="hidden" name="scope" value="quickref" />`),
+				locale=ce(`<input type="hidden" name="locale" value="ja" />`),
+				lang=ce(`<input type="hidden" name="lang" value="ja" />`),
 				inp=ce(`<input type="hidden" name="in" value="packages" />`),
 				category=ce(`<input type="hidden" name="category" value="java" />`);
 
@@ -94,10 +112,13 @@
 					a.href=d.link;
 					a.style.setProperty("--image",d.image?`url(${d.image})`:"");
 					f.action=d.action?d.action:"";
+					f.method=d.post?"POST":"GET";
 					q.name=d.query?d.query:"q";
 					q.placeholder=d.fullName?d.fullName:d.name;
 					tp(checkKeywords,d.checkKeywords);
 					tp(utf8,d.utf8);
+					tp(lang,d.lang);
+					tp(locale,d.locale);
 					tp(scope,d.quickref);
 					tp(inp,d.inp);
 					tp(category,d.category);
@@ -153,7 +174,8 @@
 						link:"https://docs.ruby-lang.org/ja/latest/doc/",
 						action:"https://rurema.clear-code.com/",
 						query:"query",
-						scope:true
+						scope:true,
+						post:true
 					},
 					{
 						name:"RubyGems",
@@ -162,7 +184,8 @@
 						link:"https://rubygems.org/?locale=ja",
 						action:"https://rubygems.org/search",
 						query:"query",
-						utf8:true
+						utf8:true,
+						locale:true
 					},
 					{
 						name:"PHP docs",
@@ -171,7 +194,7 @@
 						link:"https://www.php.net/manual/ja/",
 						action:"https://www.php.net/manual-lookup.php",
 						query:"pattern",
-						scope:true
+						lang:true
 					},
 					{
 						name:"Composer",
@@ -207,14 +230,16 @@
 						name:"Go docs",
 						image:"Go",
 						link:"https://golang.org/doc/#references",
-						action:"https://golang.org/search"
+						action:"https://golang.org/search",
+						post:true
 					},
 					{
 						name:"GoDoc",
 						fullName:"go get package",
 						image:"Go",
 						link:"https://godoc.org/",
-						action:"https://godoc.org/"
+						action:"https://godoc.org/",
+						post:true
 					},
 					{
 						name:"Rust docs",
@@ -243,7 +268,8 @@
 						image:"C++",
 						link:"https://ja.cppreference.com/w/",
 						action:"https://ja.cppreference.com/mwiki/index.php",
-						query:"search"
+						query:"search",
+						post:true
 					},
 					{
 						name:".NET API refs",
@@ -257,7 +283,8 @@
 						fullName:"nuget package",
 						image:"C%23",
 						link:"https://www.nuget.org/",
-						action:"https://www.nuget.org/packages"
+						action:"https://www.nuget.org/packages",
+						post:true
 					}
 				].map(d=>{
 					d.image=d.image?`images/${d.image}.svg`:undefined;

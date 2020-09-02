@@ -38,3 +38,8 @@
 | [Wikidata](https://commons.wikimedia.org/wiki/File:Wikidata-logo.svg) | Public domain | User:Planemad |
 | [Meta-Wiki](https://commons.wikimedia.org/wiki/File:Wikimedia-logo-meta.svg) | Public domain | WarX |
 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Commons-logo.svg) | Public domain | SVG version was created by User:Grunt and cleaned up by 3247, based on the earlier PNG version, created by Reidab. |
+
+## Uncyclopedia
+| ロゴ | ライセンス形態 | 著作権表示 |
+|:--|:--|:--|
+| [Uncyclopedia](https://commons.wikimedia.org/wiki/File:Uncyclopedia_logo_notext.svg) | Public domain | Isarra with additions by Supergeeky1 |
