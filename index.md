@@ -10,10 +10,10 @@
  - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")  
 	Bing検索, Bingマップ, Bing翻訳
 
- - [Wikipedia](https://akimikimikimikimikimikimika.github.io/search/Wikipedia/ "Wikipedia")  
+ - [Wikipedia](https://akimikimikimikimikimikimika.github.io/Search/Wikipedia/ "Wikipedia")  
 	Wikipediaを含む幾つかのWikimediaプロジェクト (数カ国語)
 
- - [Uncyclopedia](https://akimikimikimikimikimikimika.github.io/search/Uncyclopedia/ "Uncyclopedia")  
+ - [Uncyclopedia](https://akimikimikimikimikimikimika.github.io/Search/Uncyclopedia/ "Uncyclopedia")  
 	アンサイクロペディア (日本語版),チャクウィキ,ニコニコ大百科,ピクシブ大百科
 
  - [YouTube](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "YouTube")
@@ -23,7 +23,7 @@
 
 ### 準備中
 
- - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/search/DuckDuckGo/ "DuckDuckGo")
+ - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/ "DuckDuckGo")
 
 ## 画像の使用
 
