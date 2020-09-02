@@ -3,7 +3,6 @@
 	<ShortName>Bing Maps</ShortName>
 	<LongName>Bing Maps</LongName>
 	<Description>Bing Maps を検索</Description>
-	<Image height="16" width="16" type="image/x-icon">../images/favicon.ico</Image>
 	<Image height="64" width="64" type="image/png">../images/icon.png</Image>
 	<InputEncoding>UTF-8</InputEncoding>
 	<OutputEncoding>UTF-8</OutputEncoding>

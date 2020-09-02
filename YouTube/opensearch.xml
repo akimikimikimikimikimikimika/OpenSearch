@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>YouTube</ShortName>
+	<LongName>YouTube</LongName>
+	<Description>YouTube で検索</Description>
+	<Image height="64" width="64" type="image/png">../images/icon.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://www.youtube.com/results">
+		<Param name="search_query" value="{searchTerms}" />
+		<Param name="hl" value="ja" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/YouTube/opensearch.xml" />
+	<moz:SearchForm>https://www.youtube.com/?hl=ja</moz:SearchForm>
+</OpenSearchDescription>

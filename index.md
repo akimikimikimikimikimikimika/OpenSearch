@@ -4,9 +4,22 @@
 
 ### 利用可能
 
- - [Google](https://akimikimikimikimikimikimika.github.io/Search/Google/ "Google")
- - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")
- - [Wikipedia](https://akimikimikimikimikimikimika.github.io/search/Wikipedia/ "Wikipedia")
+ - [Google](https://akimikimikimikimikimikimika.github.io/Search/Google/ "Google")  
+	Google検索, Googleマップ, Google翻訳
+
+ - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")  
+	Bing検索, Bingマップ, Bing翻訳
+
+ - [Wikipedia](https://akimikimikimikimikimikimika.github.io/search/Wikipedia/ "Wikipedia")  
+	Wikipediaを含む幾つかのWikimediaプロジェクト (数カ国語)
+
+ - [Uncyclopedia](https://akimikimikimikimikimikimika.github.io/search/Uncyclopedia/ "Uncyclopedia")  
+	アンサイクロペディア (日本語版),チャクウィキ,ニコニコ大百科,ピクシブ大百科
+
+ - [YouTube](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "YouTube")
+
+ - [Languages](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "Languages")  
+	MDNと各種主要言語のリファレンスやパッケージ検索
 
 ### 準備中
 

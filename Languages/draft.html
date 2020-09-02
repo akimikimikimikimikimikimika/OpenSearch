@@ -33,14 +33,14 @@
 	<body>
 		<div id="header">
 			<div>
-				<form action="" method="GET">
-					<input type="text" role="searchbox" placeholder="Not available" name="q" disabled="disabled" />
+				<form action="https://developer.mozilla.org/ja/search" method="GET">
+					<input type="text" role="searchbox" placeholder="MDN" name="q" />
 					<span id="params"></span>
 				</form>
-				<a id="icon" style="--char:'';" href=""></a>
+				<a id="icon" href="https://developer.mozilla.org/ja/">M</a>
 			</div>
 		</div>
-		<noscript><div id="message"><div>In order to search, turn JavaScript on</div></div></noscript>
+		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -111,6 +111,7 @@
 					let d=search.data[search.current];
 					a.href=d.link;
 					a.style.setProperty("--image",d.image?`url(${d.image})`:"");
+					a.textContent=d.char?d.char:"";
 					f.action=d.action?d.action:"";
 					f.method=d.post?"POST":"GET";
 					q.name=d.query?d.query:"q";
@@ -125,12 +126,20 @@
 					if (d.noSearch) {
 						q.disabled=true;
 						q.value="";
+						location.href=d.link;
 					}
 					else q.disabled=false;
 				};
 
 				/* search data */
 				let search=construct([
+					{
+						name:"MDN",
+						image:"",
+						char:"M",
+						link:"https://developer.mozilla.org/ja/",
+						action:"https://developer.mozilla.org/ja/search"
+					},
 					{
 						name:"Node.js docs",
 						fullName:"Node.js",

@@ -11,6 +11,8 @@
 		<meta name="apple-mobile-web-app-title" content="Uncyclopedia" />
 		<link rel="shortcut icon" href="../Resources/search.png" />
 
+		<link rel="search" type="application/opensearchdescription+xml" title="YouTube" href="opensearch.xml" />
+
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
 
@@ -21,7 +23,7 @@
 				<form action="https://ja.uncyclopedia.info/index.php" method="GET">
 					<input type="text" role="searchbox" placeholder="Uncyclopedia" name="search" autofocus="autofocus" />
 				</form>
-				<a style="--image:url(images/icon.svg);" id="icon" href="https://ja.uncyclopedia.info/wiki/Main_Page"></a>
+				<a style="--image:url(../Uncyclopedia/images/icon.svg);" id="icon" href="https://ja.uncyclopedia.info/wiki/Main_Page"></a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -76,8 +78,6 @@
 					return p;
 				};
 
-				let url="https://www.bing.com/",local="mkt=ja-jp&setLang=ja-jp&cc=jp";
-
 				let didStateChange=()=>{
 					let d=search.data[search.current];
 					a.href=d.link;
@@ -95,7 +95,7 @@
 						return {
 							name:d,
 							placeholder:"Uncyclopedia",
-							image:"images/icon.svg",
+							image:"../Uncyclopedia/images/icon.svg",
 							char:"",
 							link:`https://${d}/wiki/メインページ`,
 							action:`https://${d}/index.php`

@@ -43,3 +43,8 @@
 | ロゴ | ライセンス形態 | 著作権表示 |
 |:--|:--|:--|
 | [Uncyclopedia](https://commons.wikimedia.org/wiki/File:Uncyclopedia_logo_notext.svg) | Public domain | Isarra with additions by Supergeeky1 |
+
+## YouTube
+| ロゴ | ライセンス形態 | 著作権表示 |
+|:--|:--|:--|
+| [YouTube](https://commons.wikimedia.org/wiki/File:YouTube_full-color_icon_(2017).svg) | Public domain | Jarould |
