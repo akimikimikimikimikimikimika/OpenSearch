@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>Qualys SSL Test
+	<LongName>Qualys SSL Server Test</LongName>
+	<Description>サーバーのSSL構成を分析します</Description></ShortName>
+	<Image height="64" width="64" type="image/png">../../Resources/search.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" rel="results" method="get" template="https://www.ssllabs.com/ssltest/analyze.html">
+		<Param name="d" value="{searchTerms}" />
+	</Url>
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Web/opensearch/qualys.xml" />
+	<moz:SearchForm>https://www.ssllabs.com/ssltest/</moz:SearchForm>
+</OpenSearchDescription>

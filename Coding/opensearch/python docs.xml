@@ -10,6 +10,6 @@
 		<Param name="q" value="{searchTerms}" />
 		<Param name="check_keywords" value="yes" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/python%20docs.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/python%20docs.xml" />
 	<moz:SearchForm>https://docs.python.org/ja/3/</moz:SearchForm>
 </OpenSearchDescription>

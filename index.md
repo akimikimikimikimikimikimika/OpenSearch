@@ -10,6 +10,9 @@
  - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")  
 	Bing検索, Bingマップ, Bing翻訳
 
+ - [Amazon](https://akimikimikimikimikimikimika.github.io/Search/Amazon/ "Amazon")  
+	Amazon.co.jp, Amazon.com, Amazon Prime Video, Amazon Music
+
  - [Wikipedia](https://akimikimikimikimikimikimika.github.io/Search/Wikipedia/ "Wikipedia")  
 	Wikipediaを含む幾つかのWikimediaプロジェクト (数カ国語)
 
@@ -18,8 +21,11 @@
 
  - [YouTube](https://akimikimikimikimikimikimika.github.io/Search/YouTube/ "YouTube")
 
- - [Languages](https://akimikimikimikimikimikimika.github.io/Search/Languages/ "Languages")  
-	MDNと各種主要言語のリファレンスやパッケージ検索
+ - [Coding](https://akimikimikimikimikimikimika.github.io/Search/Coding/ "Coding")  
+	GitHub,MDNと各種主要言語のリファレンスやパッケージ検索
+
+ - [Web](https://akimikimikimikimikimikimika.github.io/Search/Coding/ "Web")  
+	MDN,Can I use…,ブラウザ拡張機能の検索とQualys SSL テスト
 
 ### 準備中
 

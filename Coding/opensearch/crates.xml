@@ -9,6 +9,6 @@
 	<Url type="text/html" rel="results" method="get" template="https://crates.io/search">
 		<Param name="q" value="{searchTerms}" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/crates.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/crates.xml" />
 	<moz:SearchForm>https://crates.io/</moz:SearchForm>
 </OpenSearchDescription>

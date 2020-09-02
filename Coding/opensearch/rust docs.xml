@@ -9,6 +9,6 @@
 	<Url type="text/html" rel="results" method="post" template="https://doc.rust-lang.org/stable/std/">
 		<Param name="search" value="{searchTerms}" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/rust%20docs.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/rust%20docs.xml" />
 	<moz:SearchForm>https://doc.rust-lang.org/stable/std/</moz:SearchForm>
 </OpenSearchDescription>

@@ -11,6 +11,6 @@
 		<Param name="utf8" value="✓" />
 		<Param name="locale" value="ja" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/rubygems.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/rubygems.xml" />
 	<moz:SearchForm>https://rubygems.org/?locale=ja</moz:SearchForm>
 </OpenSearchDescription>

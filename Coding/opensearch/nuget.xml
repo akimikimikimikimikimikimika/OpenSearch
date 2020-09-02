@@ -9,6 +9,6 @@
 	<Url type="text/html" rel="results" method="post" template="https://www.nuget.org/packages">
 		<Param name="q" value="{searchTerms}" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/nuget.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/nuget.xml" />
 	<moz:SearchForm>https://www.nuget.org/</moz:SearchForm>
 </OpenSearchDescription>

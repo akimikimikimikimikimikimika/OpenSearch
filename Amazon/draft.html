@@ -2,28 +2,27 @@
 <html class="hide-bar" xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Uncyclopedia</title>
+		<title>Amazon</title>
 
 		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<meta name="apple-mobile-web-app-title" content="Uncyclopedia" />
+		<meta name="apple-mobile-web-app-title" content="Amazon" />
 		<link rel="shortcut icon" href="../Resources/search.png" />
-
-		<link rel="search" type="application/opensearchdescription+xml" title="YouTube" href="opensearch.xml" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
-
 	</head>
 	<body>
 		<div id="header">
 			<div>
-				<form action="https://ja.uncyclopedia.info/index.php" method="GET">
-					<input type="text" role="searchbox" placeholder="Uncyclopedia" name="search" autofocus="autofocus" />
+				<form action="https://www.amazon.co.jp/s" method="GET">
+					<input type="text" role="searchbox" placeholder="Amazon" name="k" autofocus="autofocus" />
+					<span id="params">
+					</span>
 				</form>
-				<a style="--image:url(../Uncyclopedia/images/icon.svg);" id="icon" href="https://ja.uncyclopedia.info/wiki/Main_Page"></a>
+				<a style="--image:url(../Amazon/images/icon.svg);" id="icon" href="https://www.amazon.co.jp/"></a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -41,9 +40,11 @@
 				};
 
 				/* element */
-				let q=qs("input[name=\"search\"]"),
+				let q=qs('[name="k"]'),
+				pl=qs("#params"), /* params */
 				f=qs("form"), /* form */
-				a=qs("a"); /* icon */
+				a=qs("a"),
+				video=ce(`<input type="hidden" name="i" value="instant-video" />`); /* icon */
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -78,11 +79,16 @@
 					return p;
 				};
 
+				/* toggle a certain parameter */
+				let tp=(p,b)=>{
+					if (p.parentNode&&(!b)) pl.removeChild(p);
+					if ((!p.parentNode)&&b) pl.appendChild(p);
+					return p;
+				};
+
 				let didStateChange=()=>{
 					let d=search.data[search.current];
 					a.href=d.link;
-					a.style.setProperty("--image",d.image?`url(${d.image})`:"");
-					a.textContent=d.char?d.char:"";
 					if (d.custom&&d.action) {
 						f.action="";
 						f.onsubmit=e=>{
@@ -95,50 +101,45 @@
 						f.action=d.action?d.action:"";
 						f.onsubmit=null;
 					}
-					q.name=d.query?d.query:"search";
-					q.placeholder=d.placeholder?d.placeholder:d.name;
+					q.placeholder=d.name;
+					tp(video,d.video);
 				};
+
+				let url="https://www.amazon.co.jp/";
 
 				/* search data */
 				let search=construct([
-					...["ja.uncyclopedia.info","ansaikuropedia.org","ja.ansaikuropedia.org","ja.uncyclopedia.org","ja.uncyc.org","ja.uncyclomedia.org","アンサイクロペディア.com","ansaikuropedia.miraheze.org"].map(d=>{
-						return {
-							name:d,
-							placeholder:"Uncyclopedia",
-							image:"../Uncyclopedia/images/icon.svg",
-							char:"",
-							link:`https://${d}/wiki/メインページ`,
-							action:`https://${d}/index.php`
-						};
-					}),
 					{
-						name:"Chakuwiki",
-						image:"",
-						char:"C",
-						link:"https://wiki.chakuriki.net/",
-						action:"https://wiki.chakuriki.net/index.php"
+						name:"Amazon.co.jp",
+						link:"https://www.amazon.co.jp/",
+						action:"https://www.amazon.co.jp/s"
 					},
 					{
-						name:"ピクシブ大百科",
-						image:"",
-						char:"P",
-						link:"https://dic.pixiv.net",
-						action:"https://dic.pixiv.net/search",
-						query:"query"
+						name:"Amazon.com",
+						link:"https://www.amazon.com/",
+						action:"https://www.amazon.com/s"
 					},
 					{
-						name:"ニコニコ大百科",
-						image:"",
-						char:"N",
-						link:"https://dic.nicovideo.jp",
-						action:"https://dic.nicovideo.jp/s/all/t/{query}/rev_created/desc/1-",
+						name:"Amazon Prime Video",
+						link:"https://www.amazon.co.jp/Prime-Video/b?ie=UTF8&node=3535604051",
+						action:"https://www.amazon.co.jp/s",
+						video:true
+					},
+					{
+						name:"Amazon Music",
+						link:"https://music.amazon.co.jp/home",
+						action:"https://music.amazon.co.jp/search/{query}",
 						custom:true
 					}
-				]);
+				].map(d=>{
+					d.image="../Amazon/images/icon.svg";
+					d.char="";
+					return d;
+				}));
 				document.body.append(search.node);
 
 				didStateChange();
-				window.addEventListener("load",()=>q.focus());
+				q.focus();
 
 			})();
 		</script>

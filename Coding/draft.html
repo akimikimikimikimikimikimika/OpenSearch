@@ -2,19 +2,20 @@
 <html class="hide-bar" xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Languages</title>
+		<title>Coding</title>
 
 		<meta name="referrer" content="never" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<meta name="apple-mobile-web-app-title" content="Languages" />
+		<meta name="apple-mobile-web-app-title" content="Coding" />
 		<link rel="shortcut icon" href="../Resources/search.png" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
 
 		<editing-folder>
+			<link rel="search" type="application/opensearchdescription+xml" title="GitHub" href="opensearch/github.xml" />
 			<link rel="search" type="application/opensearchdescription+xml" title="npm" href="opensearch/npm.xml" />
 			<link rel="search" type="application/opensearchdescription+xml" title="Pythonドキュメント" href="opensearch/python%20docs.xml" />
 			<link rel="search" type="application/opensearchdescription+xml" title="PyPI" href="opensearch/pypi.xml" />
@@ -33,11 +34,11 @@
 	<body>
 		<div id="header">
 			<div>
-				<form action="https://developer.mozilla.org/ja/search" method="GET">
-					<input type="text" role="searchbox" placeholder="MDN" name="q" />
+				<form action="https://www.github.com/search" method="GET">
+					<input type="text" role="searchbox" placeholder="GitHub" name="q" />
 					<span id="params"></span>
 				</form>
-				<a id="icon" href="https://developer.mozilla.org/ja/">M</a>
+				<a id="icon" href="https://www.github.com/">G</a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -134,11 +135,11 @@
 				/* search data */
 				let search=construct([
 					{
-						name:"MDN",
+						name:"GitHub",
 						image:"",
-						char:"M",
-						link:"https://developer.mozilla.org/ja/",
-						action:"https://developer.mozilla.org/ja/search"
+						char:"G",
+						link:"https://www.github.com/",
+						action:"https://www.github.com/search"
 					},
 					{
 						name:"Node.js docs",
@@ -296,7 +297,7 @@
 						post:true
 					}
 				].map(d=>{
-					d.image=d.image?`../Languages/images/${d.image}.svg`:undefined;
+					d.image=d.image?`../Coding/images/${d.image}.svg`:undefined;
 					d.char=d.char?d.char:"";
 					return d;
 				}));

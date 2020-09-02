@@ -10,5 +10,5 @@
 		<Param name="pattern" value="{searchTerms}" />
 		<Param name="lang" value="ja" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/php%20docs.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/php%20docs.xml" />
 </OpenSearchDescription>

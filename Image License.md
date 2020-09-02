@@ -11,7 +11,17 @@
 |:--|:--|:--|
 | [Bing](https://commons.wikimedia.org/wiki/File:Bing_logo_(2016).svg) | Public domain | Microsoft Corporation |
 
-## Languages
+## Amazon
+| ロゴ | ライセンス形態 | 著作権表示 |
+|:--|:--|:--|
+| [Amazon](https://commons.wikimedia.org/wiki/File:Font_Awesome_5_brands_amazon.svg) | Public domain | Font Awesome Free 5.4.1 by @fontawesome - https://fontawesome.com |
+
+## YouTube
+| ロゴ | ライセンス形態 | 著作権表示 |
+|:--|:--|:--|
+| [YouTube](https://commons.wikimedia.org/wiki/File:YouTube_full-color_icon_(2017).svg) | Public domain | Jarould |
+
+## Coding
 | ロゴ | ライセンス形態 | 著作権表示 |
 |:--|:--|:--|
 | [Node.js](https://commons.wikimedia.org/wiki/File:Node.js_logo.svg) | Public domain | node.js authors |
@@ -43,8 +53,3 @@
 | ロゴ | ライセンス形態 | 著作権表示 |
 |:--|:--|:--|
 | [Uncyclopedia](https://commons.wikimedia.org/wiki/File:Uncyclopedia_logo_notext.svg) | Public domain | Isarra with additions by Supergeeky1 |
-
-## YouTube
-| ロゴ | ライセンス形態 | 著作権表示 |
-|:--|:--|:--|
-| [YouTube](https://commons.wikimedia.org/wiki/File:YouTube_full-color_icon_(2017).svg) | Public domain | Jarould |

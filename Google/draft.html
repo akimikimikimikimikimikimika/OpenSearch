@@ -295,10 +295,20 @@
 					if ((sd.param!==params.search)&&(!domains.data[cn].node.parentNode)) domains.node.insertBefore(domains.data[cn].node,domains.node.childNodes[cn]);
 					a.href=sd.link.replace("{com}",dd.tld);
 					a.style.setProperty("--image",sd.image?`url(${sd.image})`:"");
-					f.action=sd.action.replace("{com}",dd.tld);
+					if (sd.custom&&sd.action) {
+						f.action="";
+						f.onsubmit=e=>{
+							if (q.value) location.href=sd.action.replace("{com}",dd.tld).replace("{query}",encodeURIComponent(q.value));
+							else location.href=sd.link;
+							e.preventDefault();
+						};
+					}
+					else {
+						f.action=sd.action.replace("{com}",dd.tld);
+						f.onsubmit=null;
+					}
 					tp(tbm,sd.tbm!=undefined).value=sd.tbm;
 					tp(btnI,sd.btnI);
-					f.onsubmit=sd.submit??null;
 					f.replaceChild(sd.param,qs("#params"));
 					q.name=sd.query??"q";
 					q.placeholder=sd.fullName??"Google";
@@ -354,12 +364,11 @@
 						name:"Translate",
 						image:"googletranslate",
 						fullName:"translate it into Japanese",
-						link:url("translate","")+"?hl=ja#view=home&op=translate&sl=auto&tl=ja&text=",
-						action:url("translate",""),
+						link:url("translate","")+"?hl=ja#view=home&op=translate&sl=auto&tl=ja",
+						action:url("translate","")+"?hl=ja#view=home&op=translate&sl=auto&tl=ja&text={query}",
+						custom:true,
 						tbm:"",
-						query:"text",
-						param:params.translate,
-						submit:tr
+						param:params.translate
 					},
 					{
 						name:"Images",

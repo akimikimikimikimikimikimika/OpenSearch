@@ -11,6 +11,6 @@
 		<Param name="scope" value="quickref" />
 		<Param name="locale" value="ja" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/ruby%20docs.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/ruby%20docs.xml" />
 	<moz:SearchForm>https://rurema.clear-code.com/</moz:SearchForm>
 </OpenSearchDescription>

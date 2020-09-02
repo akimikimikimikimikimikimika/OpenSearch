@@ -9,6 +9,6 @@
 	<Url type="text/html" rel="results" method="get" template="https://www.npmjs.com/search">
 		<Param name="q" value="{searchTerms}" />
 	</Url>
-	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Languages/opensearch/npm.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/Coding/opensearch/npm.xml" />
 	<moz:SearchForm>https://www.npmjs.com/</moz:SearchForm>
 </OpenSearchDescription>
