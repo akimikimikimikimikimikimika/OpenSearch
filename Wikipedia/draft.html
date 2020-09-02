@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
 		<meta charset="UTF-8" />
 		<title>Wikipedia</title>
@@ -9,7 +9,7 @@
 		<meta name="format-detection" content="telephone=no" />
 
 		<meta name="apple-mobile-web-app-title" content="Wikipedia" />
-		<link rel="shortcut icon" href="images/icon.png" />
+		<link rel="shortcut icon" href="../Resources/search.png" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
@@ -21,7 +21,7 @@
 					<input type="text" role="searchbox" placeholder="Wikipedia" name="search" autofocus="autofocus" />
 					<span id="params"></span>
 				</form>
-				<a style="--image:url(images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
+				<a style="--image:url(../Wikipedia/images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -211,7 +211,7 @@
 					}
 				].map(d=>{
 					d.char="";
-					d.image=`images/${d.name}.svg`;
+					d.image=`../Wikipedia/images/${d.name}.svg`;
 					d.lang=d.lang.split(",");
 					return d;
 				}));

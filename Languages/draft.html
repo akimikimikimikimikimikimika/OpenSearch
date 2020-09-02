@@ -8,8 +8,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<meta name="apple-mobile-web-app-title" content="Bing" />
-		<link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Languages" />
+		<link rel="shortcut icon" href="../Resources/search.png" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
@@ -287,7 +287,7 @@
 						post:true
 					}
 				].map(d=>{
-					d.image=d.image?`images/${d.image}.svg`:undefined;
+					d.image=d.image?`../Languages/images/${d.image}.svg`:undefined;
 					d.char=d.char?d.char:"";
 					return d;
 				}));

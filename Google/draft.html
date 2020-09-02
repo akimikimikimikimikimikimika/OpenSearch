@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
 
 		<meta charset="UTF-8" />
@@ -10,6 +10,7 @@
 		<meta name="format-detection" content="telephone=no" />
 
 		<meta name="apple-mobile-web-app-title" content="Google" />
+		<link rel="shortcut icon" href="../Resources/search.png" />
 
 		<link rel="search" type="application/opensearchdescription+xml" title="Google" href="opensearch/google.xml" />
 		<link rel="search" type="application/opensearchdescription+xml" title="Google Maps" href="opensearch/google%20maps.xml" />
@@ -221,7 +222,7 @@
 						<input type="hidden" name="oe" value="utf-8" />
 					</span>
 				</form>
-				<a style="--image:url(images/google.svg);" id="icon" href="https://encrypted.google.com/webhp"></a>
+				<a style="--image:url(../Google/images/google.svg);" id="icon" href="https://encrypted.google.com/webhp"></a>
 			</div>
 		</div>
 		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -416,7 +417,7 @@
 					}
 				].map(d=>{
 					d.char="";
-					d.image=`images/${d.image}.svg`;
+					d.image=`../Google/images/${d.image}.svg`;
 					return d;
 				}));
 				document.body.append(search.node);
