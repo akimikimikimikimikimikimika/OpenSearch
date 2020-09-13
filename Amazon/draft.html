@@ -29,6 +29,14 @@
 		<script>
 			(()=>{
 
+				let online=(()=>{
+					let p=location.protocol;
+					return /https/.test(p)||(/http/.test(p)&&location.hostname=="localhost");
+				})();
+				if (online) try{
+					["../../Library/ServiceWorker.js","../Resources/ServiceWorker.js","ServiceWorker.js"].forEach(f=>navigator.serviceWorker.register(f).then(r=>r.update()));
+				}catch(e){}
+
 				/* dom function abbreviation */
 				let qs=(q,t=document.body)=>t.querySelector(q),
 				ce=(html)=>{

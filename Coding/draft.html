@@ -45,6 +45,14 @@
 		<script>
 			(()=>{
 
+				let online=(()=>{
+					let p=location.protocol;
+					return /https/.test(p)||(/http/.test(p)&&location.hostname=="localhost");
+				})();
+				if (online) try{
+					["../../Library/ServiceWorker.js","../Resources/ServiceWorker.js","ServiceWorker.js"].forEach(f=>navigator.serviceWorker.register(f).then(r=>r.update()));
+				}catch(e){}
+
 				/* dom function abbreviation */
 				let qs=(q,t=document.body)=>t.querySelector(q),
 				ce=(html)=>{
@@ -66,6 +74,7 @@
 				locale=ce(`<input type="hidden" name="locale" value="ja" />`),
 				lang=ce(`<input type="hidden" name="lang" value="ja" />`),
 				inp=ce(`<input type="hidden" name="in" value="packages" />`),
+				sinp=ce(`<input type="hidden" name="search_in" value="packages" />`),
 				category=ce(`<input type="hidden" name="category" value="java" />`);
 
 				/* icon works as a submit button */
@@ -123,6 +132,7 @@
 					tp(locale,d.locale);
 					tp(scope,d.quickref);
 					tp(inp,d.inp);
+					tp(sinp,d.sinp);
 					tp(category,d.category);
 					if (d.noSearch) {
 						q.disabled=true;
@@ -221,6 +231,15 @@
 						link:"https://pear.php.net/",
 						action:"https://pear.php.net/search.php",
 						inp:true
+					},
+					{
+						name:"PECL",
+						fullName:"pecl package",
+						image:"PHP",
+						link:"https://pecl.php.net/",
+						action:"https://pecl.php.net/search.php",
+						query:"search_string",
+						sinp:true
 					},
 					{
 						name:"Java docs",
