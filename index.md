@@ -10,6 +10,9 @@
  - [Bing](https://akimikimikimikimikimikimika.github.io/Search/Bing/ "Bing")  
 	Bing検索, Bingマップ, Bing翻訳
 
+ - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/ "DuckDuckGo")
+
+
  - [Amazon](https://akimikimikimikimikimikimika.github.io/Search/Amazon/ "Amazon")  
 	Amazon.co.jp, Amazon.com, Amazon Prime Video, Amazon Music
 
@@ -29,7 +32,6 @@
 
 ### 準備中
 
- - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/ "DuckDuckGo")
 
 ## 画像の使用
 

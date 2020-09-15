@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+	<ShortName>DuckDuckGo</ShortName>
+	<LongName>DuckDuckGo Search</LongName>
+	<Description>DuckDuckGo で検索</Description>
+	<Image height="64" width="64" type="image/png">../Resources/search.png</Image>
+	<InputEncoding>UTF-8</InputEncoding>
+	<OutputEncoding>UTF-8</OutputEncoding>
+	<Url type="text/html" method="post" template="https://start.duckduckgo.com/">
+		<Param name="q" value="{searchTerms}" />
+		<Param name="kad" value="ja_JP" />
+		<Param name="kl" value="jp-jp" />
+	</Url>
+	<Url type="application/x-suggestions+json" template="https://ac.duckduckgo.com/ac/"/>
+		<Param name="q" value="{searchTerms}" />
+		<Param name="type" value="list" />
+		<Param name="kl" value="jp-jp" />
+	</Url>
+		<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/opensearch/duckduckgo.xml" />
+	<moz:SearchForm>https://start.duckduckgo.com/?kad=ja_JP&amp;kl=jp-jp</moz:SearchForm>
+</OpenSearchDescription>
