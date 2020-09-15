@@ -1,8 +1,8 @@
-## 検索ボックス
+# 検索ボックス
 
 デスクトップでもモバイルでも使用できる検索ボックス。
 
-### 利用可能
+## 利用可能
 
  - [Google](https://akimikimikimikimikimikimika.github.io/Search/Google/ "Google")  
 	Google検索, Googleマップ, Google翻訳
@@ -11,7 +11,6 @@
 	Bing検索, Bingマップ, Bing翻訳
 
  - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/ "DuckDuckGo")
-
 
  - [Amazon](https://akimikimikimikimikimikimika.github.io/Search/Amazon/ "Amazon")  
 	Amazon.co.jp, Amazon.com, Amazon Prime Video, Amazon Music
@@ -29,9 +28,6 @@
 
  - [Web](https://akimikimikimikimikimikimika.github.io/Search/Coding/ "Web")  
 	MDN,Can I use…,ブラウザ拡張機能の検索とQualys SSL テスト
-
-### 準備中
-
 
 ## 画像の使用
 
