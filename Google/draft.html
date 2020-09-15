@@ -260,7 +260,7 @@
 				});
 
 				/* list constructor */
-				let construct=(data)=>{
+				let construct=(data,focus)=>{
 					let o={
 						data:data,
 						node:ce(`<div class="list" />`),
@@ -280,7 +280,7 @@
 						if (n==0) cell.classList.toggle("selected");
 						cell.style.setProperty("--char",d.char?`"${d.char}"`:'" "');
 						cell.style.setProperty("--image",d.image?`url(${d.image})`:"");
-						cell.addEventListener("click",()=>{p.current=n;q.focus();});
+						cell.addEventListener("click",()=>{p.current=n;if (focus) q.focus();});
 						d.node=cell;
 						o.node.append(cell);
 					});
@@ -436,7 +436,7 @@
 					d.char="";
 					d.image=`../Google/images/${d.image}.svg`;
 					return d;
-				}));
+				}),true);
 				document.body.append(search.node);
 
 				/* domain data */
