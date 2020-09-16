@@ -210,22 +210,24 @@
 		<link rel="stylesheet" href="../Resources/default.css" />
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://encrypted.google.com/search" method="GET">
-					<input type="text" role="searchbox" placeholder="Google" name="q" autofocus="autofocus" />
-					<span id="params">
-						<input type="hidden" name="tbm" value="" />
-						<input type="hidden" name="hl" value="ja" />
-						<input type="hidden" name="gl" value="ja" />
-						<input type="hidden" name="ie" value="utf-8" />
-						<input type="hidden" name="oe" value="utf-8" />
-					</span>
-				</form>
-				<a style="--image:url(../Google/images/google.svg);" id="icon" href="https://encrypted.google.com/webhp"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://encrypted.google.com/search" method="GET">
+						<input type="text" role="searchbox" placeholder="Google" name="q" autofocus="autofocus" />
+						<span id="params">
+							<input type="hidden" name="tbm" value="" />
+							<input type="hidden" name="hl" value="ja" />
+							<input type="hidden" name="gl" value="ja" />
+							<input type="hidden" name="ie" value="utf-8" />
+							<input type="hidden" name="oe" value="utf-8" />
+						</span>
+					</form>
+					<a style="--image:url(../Google/images/google.svg);" id="icon" href="https://encrypted.google.com/webhp"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -252,7 +254,8 @@
 				f=qs("form"), /* form */
 				a=qs("a"), /* icon */
 				tbm=qs('input[name="tbm"]'),
-				btnI=ce(`<input type="hidden" name="btnI" value="" />`);
+				btnI=ce(`<input type="hidden" name="btnI" value="" />`),
+				base=qs("#base");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -437,7 +440,7 @@
 					d.image=`../Google/images/${d.image}.svg`;
 					return d;
 				}),true);
-				document.body.append(search.node);
+				base.append(search.node);
 
 				/* domain data */
 				let domains=construct("com,cat,ad,ae,com.af,com.ag,com.ai,al,am,co.ao,com.ar,as,at,com.au,az,ba,com.bd,be,bf,bg,com.bh,bi,bj,com.bn,com.bo,com.br,bs,bt,co.bw,by,com.bz,ca,cd,cf,cg,ch,ci,co.ck,cl,cm,cn,com.co,co.cr,com.cu,cv,com.cy,cz,de,dj,dk,dm,com.do,dz,com.ec,ee,com.eg,es,com.et,fi,com.fj,fm,fr,ga,ge,gg,com.gh,com.gi,gl,gm,gr,com.gt,gy,com.hk,hn,hr,ht,hu,co.id,ie,co.il,im,co.in,iq,is,it,je,com.jm,jo,co.jp,co.ke,kg,com.kh,ki,co.kr,com.kw,kz,la,com.lb,li,lk,co.ls,lt,lu,lv,com.ly,co.ma,md,me,mg,mk,ml,com.mm,mn,ms,com.mt,mu,mv,mw,com.mx,com.my,co.mz,com.na,ne,com.ng,com.ni,nl,no,com.np,nr,nu,co.nz,com.om,com.pa,com.pe,com.pg,com.ph,com.pk,pl,pn,com.pr,ps,pt,com.py,com.qa,ro,ru,rw,com.sa,com.sb,sc,se,com.sg,sh,si,sk,com.sl,sm,sn,so,sr,st,com.sv,td,tg,co.th,com.tj,tl,tm,tn,to,com.tr,tt,com.tw,co.tz,com.ua,co.ug,co.uk,com.uy,co.uz,com.vc,co.ve,vg,co.vi,com.vn,vu,ws,co.za,co.zm,co.zw".split(",").map(tld=>{
@@ -457,7 +460,7 @@
 					};
 				}));
 				domains.node.classList.toggle("hidden",true);
-				document.body.append(domains.node);
+				base.append(domains.node);
 				let cn=domains.data.findIndex(d=>d.tld=="cn");
 
 				document.documentElement.classList.toggle("hide-bar",false);

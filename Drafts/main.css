@@ -15,7 +15,7 @@
 }
 
 html{
-	background-color:var(--background);
+	background-color:var(--base-color);
 	transition:background-color 0.1s ease-in-out;
 	--header-height:calc( 110px + var(--top) );
 }
@@ -43,11 +43,20 @@ html,body{
 	overflow:hidden;
 	touch-action:none;
 }
+#base{
+	background-color:var(--background);
+	transition:background-color 0.1s ease-in-out;
+	position:fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
 
 #header{
 	transition:background-color 0.1s ease-in-out;
 	background-color:var(--bg-transparent);
-	position:fixed;
+	position:absolute;
 	z-index:2;
 	left:0;
 	right:0;
@@ -188,7 +197,7 @@ a{
 }
 
 .list,#message{
-	position:fixed;
+	position:absolute;
 	z-index:1;
 	left:var(--left);
 	right:var(--right);

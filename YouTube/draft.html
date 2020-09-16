@@ -15,16 +15,18 @@
 		<link rel="stylesheet" href="../Resources/default.css" />
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://www.youtube.com/results" method="GET">
-					<input type="text" role="searchbox" placeholder="YouTube" name="search_query" autofocus="autofocus" />
-					<input type="hidden" name="hl" value="ja" />
-				</form>
-				<a style="--image:url(../YouTube/images/icon.svg);" id="icon" href="https://www.youtube.com/?hl=ja"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://www.youtube.com/results" method="GET">
+						<input type="text" role="searchbox" placeholder="YouTube" name="search_query" autofocus="autofocus" />
+						<input type="hidden" name="hl" value="ja" />
+					</form>
+					<a style="--image:url(../YouTube/images/icon.svg);" id="icon" href="https://www.youtube.com/?hl=ja"></a>
+				</div>
 			</div>
+			<div id="message"><div>Type keywords above and press return key</div></div>
 		</div>
-		<div id="message"><div>Type keywords above and press return key</div></div>
 		<script>
 			(()=>{
 

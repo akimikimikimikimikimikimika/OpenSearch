@@ -19,22 +19,24 @@
 		<link rel="stylesheet" href="../Resources/default.css" />
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://www.bing.com/search" method="GET">
-					<input type="text" role="searchbox" placeholder="Bing" name="q" autofocus="autofocus" />
-					<span id="params">
-						<input type="hidden" name="mkt" value="ja-jp" />
-						<input type="hidden" name="setLang" value="ja-jp" />
-						<input type="hidden" name="cc" value="jp" />
-						<input type="hidden" name="textDecoration" value="false" />
-						<input type="hidden" name="scope" value="web" />
-					</span>
-				</form>
-				<a style="--image:url(../Bing/images/icon.svg);" id="icon" href="https://www.bing.com/?scope=web&mkt=ja-jp&setLang=ja-jp&cc=jp"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://www.bing.com/search" method="GET">
+						<input type="text" role="searchbox" placeholder="Bing" name="q" autofocus="autofocus" />
+						<span id="params">
+							<input type="hidden" name="mkt" value="ja-jp" />
+							<input type="hidden" name="setLang" value="ja-jp" />
+							<input type="hidden" name="cc" value="jp" />
+							<input type="hidden" name="textDecoration" value="false" />
+							<input type="hidden" name="scope" value="web" />
+						</span>
+					</form>
+					<a style="--image:url(../Bing/images/icon.svg);" id="icon" href="https://www.bing.com/?scope=web&mkt=ja-jp&setLang=ja-jp&cc=jp"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -63,7 +65,8 @@
 				a=qs("a"), /* icon */
 				sc=qs('input[name="scope"]'),
 				from=ce(`<input type="hidden" name="from" value="" />`),
-				to=ce(`<input type="hidden" name="to" value="ja" />`);
+				to=ce(`<input type="hidden" name="to" value="ja" />`),
+				base=qs("#base");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -163,7 +166,7 @@
 					d.char="";
 					return d;
 				}));
-				document.body.append(search.node);
+				base.append(search.node);
 
 				didStateChange();
 				q.focus();

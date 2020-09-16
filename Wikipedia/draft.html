@@ -15,16 +15,18 @@
 		<link rel="stylesheet" href="../Resources/default.css" />
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://ja.wikipedia.org/w/index.php" method="GET">
-					<input type="text" role="searchbox" placeholder="Wikipedia" name="search" autofocus="autofocus" />
-					<span id="params"></span>
-				</form>
-				<a style="--image:url(../Wikipedia/images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://ja.wikipedia.org/w/index.php" method="GET">
+						<input type="text" role="searchbox" placeholder="Wikipedia" name="search" autofocus="autofocus" />
+						<span id="params"></span>
+					</form>
+					<a style="--image:url(../Wikipedia/images/Wikipedia.svg);" id="icon" href="https://ja.wikipedia.org/wiki/Main_Page"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -224,7 +226,7 @@
 					return d;
 				}));
 				search.node.classList.toggle("hidden",true);
-				document.body.append(search.node);
+				base.append(search.node);
 
 				/* language data */
 				let languages=construct([
@@ -323,7 +325,7 @@
 					d.image="";
 					return d;
 				}));
-				document.body.append(languages.node);
+				base.append(languages.node);
 
 				document.documentElement.classList.toggle("hide-bar",false);
 				let bb=qs("#header>div").appendChild(ce(`<div id="bottomBar"><div class="selected">Language</div><div>Project</div><div>GET</div></div>`));

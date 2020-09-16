@@ -15,17 +15,19 @@
 		<link rel="stylesheet" href="../Resources/default.css" />
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://www.amazon.co.jp/s" method="GET">
-					<input type="text" role="searchbox" placeholder="Amazon" name="k" autofocus="autofocus" />
-					<span id="params">
-					</span>
-				</form>
-				<a style="--image:url(../Amazon/images/icon.svg);" id="icon" href="https://www.amazon.co.jp/"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://www.amazon.co.jp/s" method="GET">
+						<input type="text" role="searchbox" placeholder="Amazon" name="k" autofocus="autofocus" />
+						<span id="params">
+						</span>
+					</form>
+					<a style="--image:url(../Amazon/images/icon.svg);" id="icon" href="https://www.amazon.co.jp/"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -52,7 +54,8 @@
 				pl=qs("#params"), /* params */
 				f=qs("form"), /* form */
 				a=qs("a"),
-				video=ce(`<input type="hidden" name="i" value="instant-video" />`); /* icon */
+				video=ce(`<input type="hidden" name="i" value="instant-video" />`), /* icon */
+				base=qs("#base");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -144,7 +147,7 @@
 					d.char="";
 					return d;
 				}));
-				document.body.append(search.node);
+				base.append(search.node);
 
 				didStateChange();
 				q.focus();

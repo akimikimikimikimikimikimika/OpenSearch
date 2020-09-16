@@ -18,15 +18,17 @@
 
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://ja.uncyclopedia.info/index.php" method="GET">
-					<input type="text" role="searchbox" placeholder="Uncyclopedia" name="search" autofocus="autofocus" />
-				</form>
-				<a style="--image:url(../Uncyclopedia/images/icon.svg);" id="icon" href="https://ja.uncyclopedia.info/wiki/Main_Page"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://ja.uncyclopedia.info/index.php" method="GET">
+						<input type="text" role="searchbox" placeholder="Uncyclopedia" name="search" autofocus="autofocus" />
+					</form>
+					<a style="--image:url(../Uncyclopedia/images/icon.svg);" id="icon" href="https://ja.uncyclopedia.info/wiki/Main_Page"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -143,7 +145,7 @@
 						custom:true
 					}
 				]);
-				document.body.append(search.node);
+				base.append(search.node);
 
 				didStateChange();
 				window.addEventListener("load",()=>q.focus());

@@ -32,16 +32,18 @@
 		</editing-folder>
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://www.github.com/search" method="GET">
-					<input type="text" role="searchbox" placeholder="GitHub" name="q" />
-					<span id="params"></span>
-				</form>
-				<a id="icon" href="https://www.github.com/">G</a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://www.github.com/search" method="GET">
+						<input type="text" role="searchbox" placeholder="GitHub" name="q" />
+						<span id="params"></span>
+					</form>
+					<a id="icon" href="https://www.github.com/">G</a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -75,7 +77,8 @@
 				lang=ce(`<input type="hidden" name="lang" value="ja" />`),
 				inp=ce(`<input type="hidden" name="in" value="packages" />`),
 				sinp=ce(`<input type="hidden" name="search_in" value="packages" />`),
-				category=ce(`<input type="hidden" name="category" value="java" />`);
+				category=ce(`<input type="hidden" name="category" value="java" />`),
+				base=qs("#base");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -320,7 +323,7 @@
 					d.char=d.char?d.char:"";
 					return d;
 				}));
-				document.body.append(search.node);
+				base.append(search.node);
 
 				didStateChange();
 				q.focus();

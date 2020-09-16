@@ -24,16 +24,18 @@
 		</editing-folder>
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://developer.mozilla.org/ja/search" method="GET">
-					<input type="text" role="searchbox" placeholder="MDN" name="q" />
-					<span id="params"></span>
-				</form>
-				<a id="icon" href="https://developer.mozilla.org/ja/">M</a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://developer.mozilla.org/ja/search" method="GET">
+						<input type="text" role="searchbox" placeholder="MDN" name="q" />
+						<span id="params"></span>
+					</form>
+					<a id="icon" style="--image:url(../Resources/search.png);" href="https://developer.mozilla.org/ja/"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -96,8 +98,6 @@
 				let didStateChange=()=>{
 					let d=search.data[search.current];
 					a.href=d.link;
-					a.style.setProperty("--image",d.image?`url(${d.image})`:"");
-					a.textContent=d.char?d.char:"";
 					if (d.custom&&d.action) {
 						f.action="";
 						f.onsubmit=e=>{

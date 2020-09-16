@@ -17,22 +17,25 @@
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
+		<meta name="theme-color" content="#7f7f7f" />
 		<style></style>
 	</head>
 	<body>
-		<div id="header">
-			<div>
-				<form action="https://start.duckduckgo.com/html/" method="POST">
-					<input type="text" role="searchbox" placeholder="DuckDuckGo" name="q" autofocus="autofocus" />
-					<input type="hidden" name="kad" value="ja_JP" /><!-- DuckDuckGo language -->
-					<input type="hidden" name="kl" value="jp-jp" /><!-- Search region -->
-					<span id="params"></span>
-					<span id="mode"></span>
-				</form>
-				<a id="icon" style="--image:url(../Resources/search.png);" href="https://start.duckduckgo.com/html/"></a>
+		<div id="base">
+			<div id="header">
+				<div>
+					<form action="https://start.duckduckgo.com/html/" method="POST">
+						<input type="text" role="searchbox" placeholder="DuckDuckGo" name="q" autofocus="autofocus" />
+						<input type="hidden" name="kad" value="ja_JP" /><!-- DuckDuckGo language -->
+						<input type="hidden" name="kl" value="jp-jp" /><!-- Search region -->
+						<span id="params"></span>
+						<span id="mode"></span>
+					</form>
+					<a id="icon" style="--image:url(../Resources/search.png);" href="https://start.duckduckgo.com/html/"></a>
+				</div>
 			</div>
+			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
-		<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		<script>
 			(()=>{
 
@@ -60,7 +63,9 @@
 				a=qs("a"), /* icon */
 				params=qs("#params") /* param list */,
 				pm=qs("#mode"),
-				cs=qs("style",document.head);
+				cs=qs("style",document.head),
+				base=qs("#base"),
+				themeColor=qs('meta[name="theme-color"]',document.head);
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
@@ -207,6 +212,7 @@
 					tp(pd.kx, nc?0:s.getPropertyValue("--url"));
 					tp(pd.k9, nc?0:s.getPropertyValue("--link"));
 					tp(pd.kaa,nc?0:s.getPropertyValue("--visited-link"));
+					themeColor.setAttribute("content",s.getPropertyValue("--background"));
 
 					tp(params,!(td.noParams||variant),f);
 				};
@@ -237,6 +243,7 @@
 				let sl=[...Array(18).keys()].map(n=>`
 					@media (prefers-color-scheme:light) {
 						:root{
+							--base-color:${hsl2rgb(n,1,.5)};
 							--foreground:${hsl2rgb(n,.8,.2)};
 							--background:${hsl2rgb(n,.8,.9)};
 							--header:${hsl2rgb(n,.8,.8)};
@@ -259,6 +266,7 @@
 					}
 					@media (prefers-color-scheme:dark) {
 						:root{
+							--base-color:${hsl2rgb(n,1,.5)};
 							--foreground:${hsl2rgb(n,.8,.9)};
 							--background:${hsl2rgb(n,.8,.1)};
 							--header:${hsl2rgb(n,.8,.4)};
@@ -325,7 +333,7 @@
 					d.image="../Resources/search.png";
 					return d;
 				}),true);
-				document.body.append(search.node);
+				base.append(search.node);
 
 				/* domain data */
 				let domains=construct([
@@ -346,7 +354,7 @@
 					},
 				]);
 				domains.node.classList.toggle("hidden",true);
-				document.body.append(domains.node);
+				base.append(domains.node);
 
 				let themes=construct([
 					{
@@ -371,7 +379,7 @@
 					return o;
 				}));
 				themes.node.classList.toggle("hidden",true);
-				document.body.append(themes.node);
+				base.append(themes.node);
 
 				var post=true;
 				var variant=false;
