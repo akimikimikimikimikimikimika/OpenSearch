@@ -16,6 +16,6 @@
 		<Param name="type" value="list" />
 		<Param name="kl" value="jp-jp" />
 	</Url>
-		<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/opensearch/duckduckgo.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/opensearch/duckduckgo.xml" />
 	<moz:SearchForm>https://start.duckduckgo.com/?kad=ja_JP&amp;kl=jp-jp</moz:SearchForm>
 </OpenSearchDescription>

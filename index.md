@@ -11,6 +11,10 @@
 	Bing検索, Bingマップ, Bing翻訳
 
  - [DuckDuckGo](https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/ "DuckDuckGo")
+ - [Yahoo! JAPAN](https://akimikimikimikimikimikimika.github.io/Search/Yahoo/ "Yahoo! JAPAN")
+ - [Qwant](https://akimikimikimikimikimikimika.github.io/Search/Qwant/ "Qwant")
+ - [Ecosia](https://akimikimikimikimikimikimika.github.io/Search/Ecosia/ "Ecosia")
+ - [StartPage](https://akimikimikimikimikimikimika.github.io/Search/StartPage/ "StartPage")
 
  - [Amazon](https://akimikimikimikimikimikimika.github.io/Search/Amazon/ "Amazon")  
 	Amazon.co.jp, Amazon.com, Amazon Prime Video, Amazon Music

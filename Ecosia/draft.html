@@ -3,16 +3,16 @@
 	<head>
 
 		<meta charset="UTF-8" />
-		<title>Yahoo! JAPAN</title>
+		<title>Ecosia</title>
 
 		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<meta name="apple-mobile-web-app-title" content="Yahoo!" />
+		<meta name="apple-mobile-web-app-title" content="Ecosia" />
 		<link rel="shortcut icon" href="../Resources/search.png" />
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Yahoo! JAPAN" href="opensearch.xml" />
+		<link rel="search" type="application/opensearchdescription+xml" title="Ecosia" href="opensearch.xml" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
@@ -21,13 +21,11 @@
 		<div id="base">
 			<div id="header">
 				<div>
-					<form action="https://search.yahoo.co.jp/search" method="GET">
-						<input type="text" role="searchbox" placeholder="Yahoo!" name="p" autofocus="autofocus" />
-						<span id="params">
-							<input type="hidden" name="ei" value="UTF-8" />
-						</span>
+					<form action="https://www.ecosia.org/search" method="GET">
+						<input type="text" role="searchbox" placeholder="Ecosia" name="q" autofocus="autofocus" />
+						<span id="params"></span>
 					</form>
-					<a id="icon" style="--image:url(../Resources/search.png);" href="https://search.yahoo.co.jp"></a>
+					<a id="icon" style="--image:url(../Resources/search.png);" href="https://www.ecosia.org/"></a>
 				</div>
 			</div>
 			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
@@ -46,8 +44,7 @@
 				};
 
 				/* element */
-				let q=qs('[name="p"]'),
-				pl=qs("#params"), /* params */
+				let q=qs('[name="q"]'), /* params */
 				f=qs("form"), /* form */
 				a=qs("a"), /* icon */
 				base=qs("#base");
@@ -85,51 +82,28 @@
 					return p;
 				};
 
-				/* toggle a certain parameter */
-				let tp=(p,b)=>{
-					if (p.parentNode&&(!b)) pl.removeChild(p);
-					if ((!p.parentNode)&&b) pl.appendChild(p);
-					return p;
-				};
-
 				let didStateChange=()=>{
 					let d=search.data[search.current];
-					a.href=d.link;
-					f.action=d.action;
-					q.placeholder=d.fullName?d.fullName:"Yahoo!";
+					f.action="https://www.ecosia.org/"+d.path;
 				};
 
 				/* search data */
 				let search=construct([
 					{
-						name:"ウェブ",
-						link:"https://search.yahoo.co.jp/",
-						action:"https://search.yahoo.co.jp/search"
+						name:"Web",
+						path:"search"
 					},
 					{
-						name:"地図",
-						link:"https://beta-map.yahoo.co.jp",
-						action:"https://map.yahoo.co.jp/mapsearch/search"
+						name:"Images",
+						path:"images"
 					},
 					{
-						name:"画像",
-						link:"https://search.yahoo.co.jp/image",
-						action:"https://search.yahoo.co.jp/image/search"
+						name:"Videos",
+						path:"videos"
 					},
 					{
-						name:"動画",
-						link:"https://search.yahoo.co.jp/video",
-						action:"https://search.yahoo.co.jp/video/search"
-					},
-					{
-						name:"ニュース",
-						link:"https://news.yahoo.co.jp",
-						action:"https://news.yahoo.co.jp/search/"
-					},
-					{
-						name:"リアルタイム",
-						link:"https://search.yahoo.co.jp/realtime",
-						action:"https://search.yahoo.co.jp/realtime/search"
+						name:"News",
+						path:"news"
 					}
 				].map(d=>{
 					d.image="../Resources/search.png";

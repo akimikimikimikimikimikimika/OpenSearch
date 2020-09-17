@@ -1,19 +1,18 @@
 <!doctype html>
 <html class="hide-bar" xmlns="http://www.w3.org/1999/xhtml" lang="ja-JP" xml:lang="ja-JP">
 	<head>
+
 		<meta charset="UTF-8" />
-		<title>Bing</title>
+		<title>Qwant</title>
 
 		<meta name="referrer" content="no-referrer" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,viewport-fit=cover" />
 		<meta name="format-detection" content="telephone=no" />
 
-		<meta name="apple-mobile-web-app-title" content="Bing" />
+		<meta name="apple-mobile-web-app-title" content="Qwant" />
 		<link rel="shortcut icon" href="../Resources/search.png" />
 
-		<link rel="search" type="application/opensearchdescription+xml" title="Bing" href="opensearch/bing.xml" />
-		<link rel="search" type="application/opensearchdescription+xml" title="Bing Maps" href="opensearch/bing%20maps.xml" />
-		<link rel="search" type="application/opensearchdescription+xml" title="Microsoft Translator" href="opensearch/microsoft%20translator.xml" />
+		<link rel="search" type="application/opensearchdescription+xml" title="Qwant" href="opensearch.xml" />
 
 		<link rel="stylesheet" href="../Resources/main.css" />
 		<link rel="stylesheet" href="../Resources/default.css" />
@@ -22,31 +21,17 @@
 		<div id="base">
 			<div id="header">
 				<div>
-					<form action="https://www.bing.com/search" method="GET">
-						<input type="text" role="searchbox" placeholder="Bing" name="q" autofocus="autofocus" />
-						<span id="params">
-							<input type="hidden" name="mkt" value="ja-jp" />
-							<input type="hidden" name="setLang" value="ja-jp" />
-							<input type="hidden" name="cc" value="jp" />
-							<input type="hidden" name="textDecoration" value="false" />
-							<input type="hidden" name="scope" value="web" />
-						</span>
+					<form action="https://www.qwant.com" method="GET">
+						<input type="text" role="searchbox" placeholder="Qwant" name="q" autofocus="autofocus" />
+						<span id="params"></span>
 					</form>
-					<a style="--image:url(../Bing/images/icon.svg);" id="icon" href="https://www.bing.com/?scope=web&mkt=ja-jp&setLang=ja-jp&cc=jp"></a>
+					<a id="icon" style="--image:url(../Resources/search.png);" href="https://www.qwant.com"></a>
 				</div>
 			</div>
 			<noscript><div id="message"><div>Type keywords above and press return key</div></div></noscript>
 		</div>
 		<script>
 			(()=>{
-
-				let online=(()=>{
-					let p=location.protocol;
-					return /https/.test(p)||(/http/.test(p)&&location.hostname=="localhost");
-				})();
-				if (online) try{
-					["../../Library/ServiceWorker.js","../Resources/ServiceWorker.js","ServiceWorker.js"].forEach(f=>navigator.serviceWorker.register(f).then(r=>r.update()));
-				}catch(e){}
 
 				/* dom function abbreviation */
 				let qs=(q,t=document.body)=>t.querySelector(q),
@@ -63,14 +48,11 @@
 				pl=qs("#params"), /* params */
 				f=qs("form"), /* form */
 				a=qs("a"), /* icon */
-				sc=qs('input[name="scope"]'),
-				from=ce(`<input type="hidden" name="from" value="" />`),
-				to=ce(`<input type="hidden" name="to" value="ja" />`),
 				base=qs("#base");
 
 				/* icon works as a submit button */
 				a.addEventListener("click",e=>{
-					if (q.value!="") {f.submit();e.preventDefault();}
+					f.submit();e.preventDefault();
 				});
 
 				/* list constructor */
@@ -101,69 +83,75 @@
 					return p;
 				};
 
+				/* parameter data */
+				let pd={
+					"t":"web",    // search for
+					"s" :"1",     // filter level
+					"r" :"JP",    // search result region
+					"sr":"ja",    // search result language
+					"l" :"en_gb", // interface language
+					"b" :"0",     // open link in a new tab
+					"vt":"0",     // open videos in a new tab
+					"hc":"1",     // display trends on homepage
+					"theme":"0",  // dark mode
+					"smartNews":"1", // display news next to web results
+				};
+				for (k in pd) {
+					pd[k]=ce(`<input type="hidden" name="${k}" value="${pd[k]}" />`);
+					if (!/^ia/.test(k)) params.append(pd[k]);
+				}
+
 				/* toggle a certain parameter */
 				let tp=(p,b)=>{
 					if (p.parentNode&&(!b)) pl.removeChild(p);
 					if ((!p.parentNode)&&b) pl.appendChild(p);
+					if (typeof(b)=="string") p.value=b;
 					return p;
 				};
 
-				let url="https://www.bing.com/",local="mkt=ja-jp&setLang=ja-jp&cc=jp";
-
 				let didStateChange=()=>{
 					let d=search.data[search.current];
-					a.href=d.link;
-					f.action=d.action;
-					q.name=d.query?d.query:"q";
-					q.placeholder=d.fullName?d.fullName:"Bing";
-					tp(sc,d.scope).value=sc;
-					tp(from,d.ft);
-					tp(to,d.ft);
+					a.href=d.link?d.link:"https://www.qwant.com";
+					f.action=d.action?d.action:"https://www.qwant.com";
+					tp(pd.t,d.t);
+					let dark=window.getComputedStyle(document.documentElement).getPropertyValue("--base-color")=="#333333";
+					tp(pd.theme,dark?"1":"0");
 				};
+
+				window.matchMedia("(prefers-color-scheme:light)").addListener(m=>{didStateChange()});
+				window.matchMedia("(prefers-color-scheme:dark)").addListener(m=>{didStateChange()});
 
 				/* search data */
 				let search=construct([
 					{
 						name:"Web",
-						link:url+"?scope=web&"+local,
-						action:url+"search",
-						scope:"web"
+						t:"web"
 					},
 					{
 						name:"Maps",
-						fullName:"Bing Maps",
-						link:url+"maps?"+local,
-						action:url+"maps"
-					},
-					{
-						name:"Translate",
-						fullName:"translate it into Japanese",
-						link:url+"translator?text=&from=&to=ja&"+local,
-						action:url+"translator",
-						query:"text",
-						ft:true
+						link:"https://www.qwant.com/maps",
+						action:"https://www.qwant.com/maps/places/"
 					},
 					{
 						name:"Images",
-						link:url+"?scope=images&"+local,
-						action:url+"images/search",
-						scope:"images"
+						t:"images"
 					},
 					{
 						name:"Videos",
-						link:url+"?scope=video&"+local,
-						action:url+"videos/search",
-						scope:"video"
+						t:"videos"
 					},
 					{
 						name:"News",
-						link:url+"news/search?"+local,
-						action:url+"news/search",
-						scope:"news"
+						t:"news"
+					},
+					{
+						name:"Music",
+						link:"https://www.qwant.com/music",
+						action:"https://www.qwant.com/music/search",
+						t:"overview"
 					}
 				].map(d=>{
-					d.image="../Bing/images/icon.svg";
-					d.char="";
+					d.image="../Resources/search.png";
 					return d;
 				}));
 				base.append(search.node);

@@ -18,6 +18,6 @@
 		<Param name="type" value="list" />
 		<Param name="kl" value="jp-jp" />
 	</Url>
-		<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/opensearch/duckduckgo-onion.xml" />
+	<Url type="application/opensearchdescription+xml" rel="self" template="https://akimikimikimikimikimikimika.github.io/Search/DuckDuckGo/opensearch/duckduckgo-onion.xml" />
 	<moz:SearchForm>https://3g2upl4pq6kufc4m.onion/?kad=ja_JP&amp;kl=jp-jp</moz:SearchForm>
 </OpenSearchDescription>
